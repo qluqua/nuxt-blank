@@ -12,7 +12,7 @@ module.exports = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   loading: { color: '#fff' },
-  css: [],
+  css: ['~assets/styles/app.styl'],
   plugins: [],
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
