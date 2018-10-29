@@ -4,7 +4,7 @@
   +b.page
     +e.H1.title {{ id }}
     IconSvg(icon="twitter")
-    +e.PRE.test-data(v-html="testData")
+    +e.PRE.test-data(v-if="testData") {{ testData.status }}
 </template>
 
 <script lang="ts">
