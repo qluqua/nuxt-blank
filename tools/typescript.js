@@ -12,12 +12,12 @@ module.exports = function() {
     })
 
     // Add .ts extension in webpack resolve
-    if (! config.resolve.extensions.includes('.ts')) {
+    if (!config.resolve.extensions.includes('.ts')) {
       config.resolve.extensions.push('.ts')
     }
 
     // Add .tsx extension in webpack resolve
-    if (! config.resolve.extensions.includes('.tsx')) {
+    if (!config.resolve.extensions.includes('.tsx')) {
       config.resolve.extensions.push('.tsx')
     }
   })
