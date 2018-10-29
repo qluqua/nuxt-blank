@@ -4,7 +4,7 @@
 /dist
 /www
 /tmp
-/public/static/images/sprite.svg
+/static/images/sprite.svg
 
 /libs/swagger
 

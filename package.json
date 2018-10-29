@@ -5,7 +5,7 @@
   "author": "Sergei Kornienko",
   "private": true,
   "scripts": {
-    "svg-sprite": "svg-sprite --symbol --symbol-dest=public/static/images --symbol-sprite=sprite.svg src/assets/images/svg/*.svg",
+    "svg-sprite": "svg-sprite --symbol --symbol-dest=static/images --symbol-sprite=sprite.svg assets/images/svg/*.svg",
     "swagger": "gulp swagger",
     "prepeare": "yarn svg-sprite && yarn swagger",
     "dev": "nuxt",
@@ -13,7 +13,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "analyze": "nuxt build --analyze"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
