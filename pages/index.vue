@@ -3,16 +3,13 @@
 
   +b.page
     +e.H1.title {{ id }}
-
     IconSvg(icon="twitter")
-    +b.icon-svg
-      +e.SVG.svg
-        +e.USE.use(xlink:href="/images/sprite.svg#twitter")
+    +e.PRE.test-data(v-html="testData")
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import axios from 'axios'
 import IconSvg from '~/components/IconSvg.vue'
 import uniqueId from '~/assets/mixins/uniqueId'
@@ -22,16 +19,24 @@ export default Vue.extend({
     IconSvg
   },
   computed: {
-    ...mapState('ui', [
-      // 'windowWidth'
+    ...mapState('data', [
+      'testData'
     ]),
     id() {
       return uniqueId()
     }
   },
+  created() {
+    this.getTestData()
+  },
   mounted() {
     // console.log(this.windowWidth)
     // console.log(process, axios)
+  },
+  methods: {
+    ...mapActions('data', [
+      'getTestData'
+    ])
   }
 })
 </script>
