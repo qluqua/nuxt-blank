@@ -1,0 +1,45 @@
+@import './tools'
+
+*
+  box-sizing border-box
+  text-decoration-skip ink
+  -webkit-appearance none
+  // -webkit-tap-highlight-color rgba($cSelectedTextBackground, .5)
+
+img
+svg
+iframe
+object
+  max-width 100%
+  max-height 100%
+
+i
+cite
+em
+var
+address
+  font-style normal
+
+html
+body
+  // height 1px
+  // min-height 100%
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale 
+
+[v-cloak]
+  display none !important
+
+// ::selection
+//   background-color rgba(black, .17)
+//   color black
+
+// ScrollObserver animation class
+.js-soa
+  will-change transform, opacity
+  transition()
+  transition-duration 500ms
+  transition-delay 50ms
+
+  &.is-scroll-invisible
+    opacity 0
