@@ -8,6 +8,10 @@
     "svg-sprite": "svg-sprite --symbol --symbol-dest=static/images --symbol-sprite=sprite.svg assets/images/svg/*.svg",
     "swagger": "gulp swagger",
     "prepeare": "yarn svg-sprite && yarn swagger",
+    "predev": "yarn prepeare",
+    "prebuild": "yarn prepeare",
+    "prestart": "yarn prepeare",
+    "pregenerate": "yarn prepeare",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
@@ -19,6 +23,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.0.0",
     "@sentry/browser": "^4.2.3",
+    "axios": "^0.18.0",
     "cross-env": "^5.2.0",
     "gsap": "^2.0.2",
     "intersection-observer": "^0.5.1",
