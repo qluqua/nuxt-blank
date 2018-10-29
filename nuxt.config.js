@@ -1,12 +1,7 @@
 const pkg = require('./package')
-const webpack = require('webpack')
 
 module.exports = {
   mode: 'universal',
-
-  /*
-  ** Headers of the page
-  */
   head: {
     title: pkg.name,
     meta: [
@@ -16,66 +11,30 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-
-  /*
-  ** Customize the progress-bar color
-  */
   loading: { color: '#fff' },
-
-  /*
-  ** Global CSS
-  */
   css: [],
-
-  /*
-  ** Plugins to load before mounting the App
-  */
   plugins: [],
-
-  /*
-  ** Nuxt.js modules
-  */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '~/tools/typescript.js'
   ],
-  /*
-  ** Axios module configuration
-  */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
-
-  /*
-  ** Build configuration
-  */
   build: {
-    /*
-    ** You can extend webpack config here
-    extractCSS: true,
-    cssSourceMap: true,
-    */
     extractCSS: true,
     cssSourceMap: true,
     extend(config, ctx) {
-      config.module.rules.push({
-        test: /\.(js|ts)$/,
-        loader: 'ts-loader',
-        exclude: /(node_modules)/,
-        options: {
-          transpileOnly: true,
-          appendTsSuffixTo: [/\.vue$/]
-        }
-      })
-      // // Run ESLint on save
-      // if (ctx.isDev && ctx.isClient) {
-      //   config.module.rules.push({
-      //     enforce: 'pre',
-      //     test: /\.(js|vue)$/,
-      //     loader: 'eslint-loader',
-      //     exclude: /(node_modules)/
-      //   })
-      // }
+      // config.module.rules.push({
+      //   test: /\.(js|ts)$/,
+      //   loader: 'ts-loader',
+      //   exclude: /(node_modules)/,
+      //   options: {
+      //     // transpileOnly: true,
+      //     appendTsSuffixTo: [/\.vue$/]
+      //   }
+      // })
     }
   }
 }

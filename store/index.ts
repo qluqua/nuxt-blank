@@ -5,10 +5,7 @@ import ui from './modules/ui'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-    pidor: 1
-  },
+export default () => new Vuex.Store({
   modules: {
     ui,
     data

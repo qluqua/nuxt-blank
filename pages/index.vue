@@ -15,13 +15,20 @@ h1
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapState } from 'vuex'
 import uniqueId from '../mixins/uniqueId.ts'
 
 export default Vue.extend({
   computed: {
+    ...mapState('ui', [
+      // 'windowWidth'
+    ]),
     id() {
       return uniqueId()
     }
+  },
+  mounted() {
+    // console.log(this.windowWidth)
   }
 })
 </script>

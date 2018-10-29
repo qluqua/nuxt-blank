@@ -2,25 +2,21 @@
   "compilerOptions": {
     "target": "es5",
     "module": "es2015",
+    "moduleResolution": "node",
     "strict": false,
     "jsx": "preserve",
     "importHelpers": true,
-    "moduleResolution": "node",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": ".",
     "noImplicitAny": false,
-    "types": [
-      "node",
-      "mocha",
-      "chai"
-    ],
+    "noImplicitThis": false,
+    "allowJs": true,
+    "removeComments": true,
+    "baseUrl": ".",
     "paths": {
-      "~*": [
-        "/*"
-      ]
+      "~/*": ["./*"]
     },
     "lib": [
       "es2017",
