@@ -3472,6 +3472,13 @@ glob2base@^0.0.12:
   dependencies:
     find-index "^0.1.1"
 
+glob@3.2.x:
+  version "3.2.11"
+  resolved "https://registry.yarnpkg.com/glob/-/glob-3.2.11.tgz#4a973f635b9190f715d10987d5c00fd2815ebe3d"
+  dependencies:
+    inherits "2"
+    minimatch "0.3"
+
 glob@7.0.x:
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.0.6.tgz#211bafaf49e525b8cd93260d14ab136152b3f57a"
@@ -4965,6 +4972,13 @@ minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
 minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
+
+minimatch@0.3:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-0.3.0.tgz#275d8edaac4f1bb3326472089e7949c8394699dd"
+  dependencies:
+    lru-cache "2"
+    sigmund "~1.0.0"
 
 minimatch@3.0.4, minimatch@^3.0.2, minimatch@^3.0.4:
   version "3.0.4"
@@ -7451,9 +7465,22 @@ stylus-loader@^3.0.2:
     lodash.clonedeep "^4.5.0"
     when "~3.6.x"
 
-stylus-mixins@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/stylus-mixins/-/stylus-mixins-0.4.0.tgz#86467c47317b7b45f8005402a8676e414f7295c5"
+"stylus-mixins@https://github.com/qluqua/stylus-mixins.git":
+  version "1.1.0"
+  resolved "https://github.com/qluqua/stylus-mixins.git#d96097a5e6546c33b3b013cb0b5d45c55c381fee"
+  dependencies:
+    stylus "0.54.2"
+
+stylus@0.54.2:
+  version "0.54.2"
+  resolved "https://registry.yarnpkg.com/stylus/-/stylus-0.54.2.tgz#77f0da93cde5a55ab917496850b7ab5214474a0b"
+  dependencies:
+    css-parse "1.7.x"
+    debug "*"
+    glob "3.2.x"
+    mkdirp "0.5.x"
+    sax "0.5.x"
+    source-map "0.1.x"
 
 stylus@^0.54.5:
   version "0.54.5"

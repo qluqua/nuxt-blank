@@ -24,17 +24,6 @@ module.exports = {
   },
   build: {
     extractCSS: true,
-    cssSourceMap: true,
-    extend(config, ctx) {
-      // config.module.rules.push({
-      //   test: /\.(js|ts)$/,
-      //   loader: 'ts-loader',
-      //   exclude: /(node_modules)/,
-      //   options: {
-      //     // transpileOnly: true,
-      //     appendTsSuffixTo: [/\.vue$/]
-      //   }
-      // })
-    }
+    cssSourceMap: true
   }
 }

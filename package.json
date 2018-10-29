@@ -23,7 +23,7 @@
     "intersection-observer": "^0.5.1",
     "nuxt": "^2.0.0",
     "nuxt-property-decorator": "^1.2.0",
-    "stylus-mixins": "^0.4.0",
+    "stylus-mixins": "https://github.com/qluqua/stylus-mixins.git",
     "svgxuse": "^1.2.6",
     "validator": "^10.8.0",
     "vuex-class": "^0.3.1"

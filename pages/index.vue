@@ -1,22 +1,14 @@
-<template>
-  <section class="container">
-    <h1>{{ id }}</h1>
-  </section>
+<template lang="pug">
+  include ../tools/bemto
+
+  +b.page
+    +e.H1.title {{ id }}
 </template>
-
-<script>
-export default {}
-</script>
-
-<style lang="stylus" scoped>
-h1
-  color red
-</style>
 
 <script lang="ts">
 import Vue from 'vue'
 import { mapState } from 'vuex'
-import uniqueId from '../mixins/uniqueId.ts'
+import uniqueId from '~/assets/mixins/uniqueId'
 
 export default Vue.extend({
   computed: {
@@ -32,3 +24,11 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="stylus" scoped>
+@import '~assets/styles/tools'
+
+h1
+  color white
+  debug()
+</style>
