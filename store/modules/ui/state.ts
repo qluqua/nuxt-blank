@@ -1,3 +1,5 @@
 export default {
-  windowWidth: null
+  windowWidth: null,
+  platform: null,
+  os: null
 }

@@ -10,7 +10,7 @@
 <script>
 import axios from 'axios'
 import IconSvg from '@/components/IconSvg'
-import uniqueId from '@/assets/mixins/uniqueId'
+import uniqueId from '@/mixins/uniqueId'
 
 export default {
   components: {
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~assets/styles/tools'
+@import '../styles/tools'
 
 h1
   color white

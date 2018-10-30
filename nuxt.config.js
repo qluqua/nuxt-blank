@@ -9,14 +9,17 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  css: ['@/assets/styles/app.styl'],
+  css: ['@/styles/app.styl'],
   loading: { color: '#fff' },
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@/tools/typescript.js'
   ],
-  plugins: [{ src: '@/plugins/windowWidth.ts', ssr: false }],
+  plugins: [
+    { src: '@/plugins/windowWidthHandler.ts', ssr: false },
+    { src: '@/plugins/deviceHandler.ts', ssr: false }
+  ],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
