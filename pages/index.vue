@@ -4,37 +4,35 @@
   +b.page
     +e.H1.title {{ id }}
     IconSvg(icon="twitter")
-    +e.PRE.test-data(v-if="testData") {{ testData.title }}
+    +e.PRE.test-data(v-if="testData") {{ testData }}
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { mapState, mapActions } from 'vuex'
+<script>
 import axios from 'axios'
 import IconSvg from '~/components/IconSvg.vue'
 import uniqueId from '~/assets/mixins/uniqueId'
 
-export default Vue.extend({
+export default {
   components: {
     IconSvg
   },
   computed: {
-    ...mapState('data', [
-      'testData'
-    ]),
     id() {
       return uniqueId()
     }
   },
-  created() {
-    this.getTestData()
+  async asyncData() {
+    const { data } = await axios.get('https://jsonplaceholder.typicode.com/todos/1')
+
+    return { testData: data.title }
   },
-  methods: {
-    ...mapActions('data', [
-      'getTestData'
-    ])
+  head() {
+    return {
+      title: 'Index page',
+      meta: [{ hid: 'Index page hid', name: 'Index page name', content: 'Index page content' }]
+    }
   }
-})
+}
 </script>
 
 <style lang="stylus" scoped>

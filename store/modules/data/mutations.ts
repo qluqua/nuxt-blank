@@ -1,5 +1,5 @@
 export default {
-  saveTestData(state, payload) {
-    state.testData = payload
-  }
+  // saveTestData(state, payload) {
+  //   state.testData = payload
+  // }
 }
