@@ -5,10 +5,13 @@
     +e.H1.title {{ id }}
     IconSvg(icon="twitter")
     +e.PRE.test-data(v-if="testData") {{ testData }}
+    +e.test(v-if="isIe") isIe
+    +e.test(v-if="isEdge") isEdge
 </template>
 
 <script>
 import axios from 'axios'
+import { mapState } from 'vuex'
 import IconSvg from '@/components/IconSvg'
 import uniqueId from '@/mixins/uniqueId'
 
@@ -17,6 +20,10 @@ export default {
     IconSvg
   },
   computed: {
+    ...mapState('ui', [
+      'isIe',
+      'isEdge'
+    ]),
     id() {
       return uniqueId()
     }
