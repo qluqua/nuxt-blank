@@ -9,8 +9,8 @@
 
 <script>
 import axios from 'axios'
-import IconSvg from '~/components/IconSvg'
-import uniqueId from '~/assets/mixins/uniqueId'
+import IconSvg from '@/components/IconSvg'
+import uniqueId from '@/assets/mixins/uniqueId'
 
 export default {
   components: {

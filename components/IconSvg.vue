@@ -6,28 +6,27 @@
       +e.USE.use(:xlink:href="iconPath")
 </template>
 
-<script lang="ts">
-import { Vue, Component, Prop } from 'nuxt-property-decorator'
+<script>
+export default {
+  props: {
+    icon: String,
+    width: String,
+    height: String,
+  },
+  computed: {
+    iconPath() {
+      return `/images/sprite.svg#${this['icon'] || ''}`
+    },
+    inlineStyles() {
+      let stylesString = ''
+      const width = this['width']
+      const height = this['height']
 
-@Component
-export default class IconSvg extends Vue {
-  @Prop() icon: string // имя иконки должно совпадать с названием svg-файла
-  @Prop() width: string
-  @Prop() height: string
+      if (width) { stylesString += `width:${+width}px;` }
+      if (height) { stylesString += `height:${+height}px;` }
 
-  get iconPath() {
-    return `/images/sprite.svg#${this['icon'] || ''}`
-  }
-
-  get inlineStyles() {
-    let stylesString = ''
-    const width = this['width']
-    const height = this['height']
-
-    if (width) { stylesString += `width:${+width}px;` }
-    if (height) { stylesString += `height:${+height}px;` }
-
-    return stylesString
+      return stylesString
+    }
   }
 }
 </script>
