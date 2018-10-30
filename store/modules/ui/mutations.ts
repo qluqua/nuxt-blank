@@ -1,3 +1,3 @@
 export default {
-  calculateWindowWidth(state: any) { state.windowWidth = window.innerWidth },
+  updateWindowWidth(state, payload: number) { state.windowWidth = payload },
 }

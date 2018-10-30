@@ -16,7 +16,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@/tools/typescript.js'
   ],
-  plugins: [],
+  plugins: [{ src: '@/plugins/windowWidth.ts', ssr: false }],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },

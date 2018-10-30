@@ -1,4 +1,3 @@
-
 export default {
-  // windowWidth: (state: any) => state.windowWidth
+  // windowWidth: state => state.windowWidth
 }

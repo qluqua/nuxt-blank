@@ -1,3 +1,3 @@
 export default {
-  // windowWidth: document.documentElement.clientWidth
+  windowWidth: null
 }
