@@ -17,8 +17,8 @@ module.exports = {
     '@/tools/typescript.js'
   ],
   plugins: [
-    { src: '@/plugins/windowWidthHandler.ts', ssr: false },
-    { src: '@/plugins/deviceHandler.ts', ssr: false }
+    { src: '@/plugins/viewportSizeHanler.ts', ssr: false },
+    { src: '@/plugins/clientParametersHandler.ts', ssr: false }
   ],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
