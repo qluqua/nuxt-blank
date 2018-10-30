@@ -29,10 +29,6 @@ export default Vue.extend({
   created() {
     this.getTestData()
   },
-  mounted() {
-    // console.log(this.windowWidth)
-    // console.log(process, axios)
-  },
   methods: {
     ...mapActions('data', [
       'getTestData'
