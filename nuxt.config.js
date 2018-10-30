@@ -1,27 +1,55 @@
 module.exports = {
   mode: 'universal',
   head: {
-    title: '@title',
+    title: 'nuxt-blank',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'hid', name: 'description', content: '' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  css: ['@/assets/styles/app.styl'],
   loading: { color: '#fff' },
-  css: ['~/assets/styles/app.styl'],
-  plugins: [],
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '~/tools/typescript.js'
   ],
+  plugins: [],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
+  vue: {
+    config: {
+      productionTip: false
+    }
+  },
+  router: {
+    scrollBehavior: function(to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
+  },
+  // rootDir: './',
+  // srcDir: 'src',
+  // modulesDir: '../node_modules',
+  generate: {
+    dir: 'www'
+  },
   build: {
     extractCSS: true,
-    cssSourceMap: true
+    html: {
+      minify: {
+        collapseBooleanAttributes: false,
+        decodeEntities: false,
+        minifyCSS: false,
+        minifyJS: false,
+        processConditionalComments: true,
+        removeEmptyAttributes: false,
+        removeRedundantAttributes: false,
+        trimCustomFragments: false,
+        useShortDoctype: false
+      }
+    }
   }
 }
