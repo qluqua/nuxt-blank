@@ -30,7 +30,6 @@ export default {
   },
   async asyncData() {
     const { data } = await axios.get('https://jsonplaceholder.typicode.com/todos/1')
-
     return { testData: data.title }
   },
   head() {
@@ -38,6 +37,9 @@ export default {
       title: 'Index page',
       meta: [{ hid: 'Index page hid', name: 'Index page name', content: 'Index page content' }]
     }
+  },
+  mounted() {
+    debugger
   }
 }
 </script>
