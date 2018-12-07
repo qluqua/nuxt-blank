@@ -1,8 +1,16 @@
 const gulp = require('gulp')
+
+// swagger
 const yaml = require('gulp-yaml')
 const gje = require('gulp-json-editor')
 const exec = require('gulp-exec')
 const rename = require('gulp-rename')
+// \swagger
+
+// images
+const imagemin = require('gulp-imagemin')
+const imageminMozjpeg = require('imagemin-mozjpeg')
+// \images
 
 const swaggerGenerateAngular = 'java -jar swagger/swagger-codegen-cli-2.3.1.jar generate -c swagger/config.json -i swagger/swagger.json -l typescript-angular -o libs/swagger'
 const swaggerGenerateTsFetch = 'swagger-codegen generate -c swagger/config.json -i swagger/swagger.json -l typescript-fetch -o libs/swagger'
@@ -34,4 +42,28 @@ gulp.task('watch', () => {
   gulp.watch('swagger/swagger.yaml', ['swagger'])
 })
 
-gulp.task('default', ['swagger'])
+gulp.task('imagemin', () =>
+  gulp.src([
+      'public/**/*.{png,gif,jpg}',
+      'static/**/*.{png,gif,jpg}',
+      'src/**/*.{png,gif,jpg}',
+    ], { base: '.' })
+    .pipe(imagemin([
+      // imagemin.gifsicle({ interlaced: true }),
+      // @TODO: play with png optimization level
+      imagemin.optipng({ optimizationLevel: 2 }),
+      imagemin.svgo({
+        plugins: [
+          { removeViewBox: true },
+          { cleanupIDs: false }
+        ]
+      }),
+      // jpeg weight killer
+      imageminMozjpeg({ quality: 80 })
+    ], {
+      verbose: true
+    }))
+    .pipe(gulp.dest('./'))
+)
+
+gulp.task('default', ['swagger', 'imagemin'])
