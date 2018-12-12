@@ -21,7 +21,6 @@ function scrollTo(
   if (typeof payload === 'object') {
     // HTMLElement expected
     top = calcTop(payload)
-    top += window.scrollY
   } else if (typeof payload === 'number') {
     // Number of pixels from top
     top = payload
@@ -34,7 +33,6 @@ function scrollTo(
     }
 
     top = calcTop(el)
-    top += window.scrollY
   }
 
   if (top >= offset) {
@@ -47,7 +45,7 @@ function scrollTo(
 }
 
 function calcTop(el) {
-  return el.getBoundingClientRect().top
+  return el.getBoundingClientRect().top + window.scrollY
 }
 
 function easeInOutQuad(t, b, c, d) {
