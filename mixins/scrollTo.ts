@@ -45,7 +45,7 @@ function scrollTo(
 }
 
 function calcTop(el) {
-  return el.getBoundingClientRect().top + window.scrollY
+  return el.getBoundingClientRect().top + window.pageYOffset
 }
 
 function easeInOutQuad(t, b, c, d) {
