@@ -26,7 +26,6 @@ body
   // min-height 100%
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  background-color rgba(lightblue, .25)
 
 [v-cloak]
   display none !important
@@ -37,9 +36,11 @@ body
 
 // ScrollObserver animation class
 .js-soa
-  transition()
-  transition-duration 500ms
-  transition-delay 50ms
+  transition-property transform, opacity
+  transition-timing-function $googleTiming
+  transition-duration 444ms
+  transition-delay 66.6ms
 
-  &.is-scroll-invisible
-    opacity 0
+.js-soa-start
+  opacity 0
+  transform translateY(25px)
