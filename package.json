@@ -8,7 +8,7 @@
     "imagemin": "gulp imagemin",
     "svg-sprite": "svg-sprite --symbol --symbol-dest=static/images --symbol-sprite=sprite.svg assets/images/svg/*.svg",
     "swagger": "gulp swagger",
-    "prepeare": "yarn svg-sprite && yarn swagger",
+    "prepeare": "yarn imagemin && yarn svg-sprite && yarn swagger",
     "predev": "yarn prepeare",
     "prebuild": "yarn prepeare",
     "prestart": "yarn prepeare && yarn build",
@@ -19,7 +19,7 @@
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "analyze": "nuxt build --analyze"
+    "report": "nuxt build --analyze"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.3",
@@ -52,9 +52,11 @@
     "eslint-plugin-vue": "^4.0.0",
     "gulp": "^3.9.1",
     "gulp-exec": "^3.0.2",
+    "gulp-imagemin": "^5.0.3",
     "gulp-json-editor": "^2.4.2",
     "gulp-rename": "^1.4.0",
     "gulp-yaml": "^2.0.2",
+    "imagemin-mozjpeg": "^8.0.0",
     "nodemon": "^1.11.0",
     "prettier": "1.14.3",
     "pug": "^2.0.3",
