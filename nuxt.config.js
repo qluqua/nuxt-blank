@@ -5,7 +5,8 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'hid', name: 'description', content: '' }
+      { hid: 'hid', name: 'description', content: '' },
+      { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
@@ -18,7 +19,8 @@ module.exports = {
   ],
   plugins: [
     { src: '@/plugins/viewportSizeHanler.ts', ssr: false },
-    { src: '@/plugins/clientParametersHandler.ts', ssr: false }
+    { src: '@/plugins/clientParametersHandler.ts', ssr: false },
+    { src: '@/plugins/svgxuse.ts', ssr: false }
   ],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options

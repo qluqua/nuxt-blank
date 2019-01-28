@@ -3,8 +3,8 @@ export default {
     state.windowWidth = payload[0]
     state.windowHeight = payload[1]
   },
-  setPlatform(state, payload: string) { state.platform = payload },
-  setOs(state, payload: string) { state.os = payload },
+  setDeviceType(state, payload: string) { state.deviceType = payload },
   isIe(state) { state.isIe = true },
   isEdge(state) { state.isEdge = true },
+  setBrowser(state, payload) { state.browser = payload }
 }
