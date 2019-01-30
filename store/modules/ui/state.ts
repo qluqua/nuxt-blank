@@ -5,6 +5,7 @@ grid.numbers = Object.keys(grid.breakpoints).map(key => grid.breakpoints[key]).s
 
 export default {
   grid,
+  breakpoint: null,
   isIe: null,
   isEdge: null,
   deviceType: null,

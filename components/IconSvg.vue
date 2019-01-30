@@ -22,8 +22,8 @@ export default {
       const width = this['width']
       const height = this['height']
 
-      if (width) { stylesString += `width:${+width}px;` }
-      if (height) { stylesString += `height:${+height}px;` }
+      if (width) stylesString += `width:${+width}px;`
+      if (height) stylesString += `height:${+height}px;`
 
       return stylesString
     }

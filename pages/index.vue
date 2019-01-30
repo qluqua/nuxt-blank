@@ -24,13 +24,13 @@ export default {
   name: 'index',
   computed: {
     ...mapGetters('ui', [
-      'breakpoint',
       'columns',
       'gutter',
       'offset'
     ]),
     ...mapState('ui', [
       'windowWidth',
+      'breakpoint',
       'grid',
     ])
   }

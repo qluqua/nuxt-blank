@@ -18,7 +18,7 @@ module.exports = {
     '@/tools/typescript.js'
   ],
   plugins: [
-    { src: '@/plugins/viewportSizeHanler.ts', ssr: false },
+    { src: '@/plugins/viewportSizeHandler.ts', ssr: false },
     { src: '@/plugins/clientParametersHandler.ts', ssr: false },
     { src: '@/plugins/svgxuse.ts', ssr: false }
   ],
