@@ -3,6 +3,9 @@
 debug()
   background-color rgba(red, .33) !important
 
+outline()
+  outline 3px solid rgba(red, .33) !important
+
 ghost()
   content ''
   position absolute
@@ -12,25 +15,9 @@ ghost()
   left 0
 
 transition($property = transform\, opacity)
-  transition-property $property
-  transition-duration $tDurationDeafault
-  transition-timing-function $tTimingFunctionDefault
+  transition $property $tDurationDeafault $tTimingFunctionDefault
 
 hoverDesktop()
   &:hover
     html.desktop &
       {block}
-
-grid-column($colsCount, $gutter, $size)
-  $gutter = $gutter * 1px
-  $gutters = ($colsCount - 1) * $gutter
-  $innerGutters = ($size - 1) * $gutter
-
-  return 'calc((((100% - %s) / %s) * %s) + %s)' % ($gutters $colsCount $size $innerGutters)
-
-grid-offset($colsCount, $gutter, $size)
-  $gutter = $gutter * 1px
-  $gutters = ($colsCount - 1) * $gutter
-  $guttersOffset = ($size) * $gutter
-
-  return 'calc((((100% - %s) / %s) * %s) + %s)' % ($gutters $colsCount $size $guttersOffset)

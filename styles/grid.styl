@@ -22,10 +22,6 @@ xl()
     {block}
 
 // Ширина экрана МЕНЬШЕ, чем указанное значение
-lt-sm()
-  @media config.queries.lt-sm
-    {block}
-
 lt-md()
   @media config.queries.lt-md
     {block}
@@ -34,17 +30,21 @@ lt-lg()
   @media config.queries.lt-lg
     {block}
 
-// Ширина экрана БОЛЬШЕ, чем указанное значение
-gt-xs()
-  @media config.queries.gt-xs
+lt-xl()
+  @media config.queries.lt-xl
     {block}
 
+// Ширина экрана БОЛЬШЕ, чем указанное значение
 gt-sm()
   @media config.queries.gt-sm
     {block}
 
 gt-md()
   @media config.queries.gt-md
+    {block}
+
+gt-lg()
+  @media config.queries.gt-lg
     {block}
 
 // базовый миксин для задания размеров элементу
@@ -56,17 +56,17 @@ grid-column($colsCount, $gutter, $size)
   return 'calc((((100% - %s) / %s) * %s) + %s)' % ($gutters $colsCount $size $innerGutters)
 
 // базовый миксин для задания оффсета элементу
-grid-offset($colsCount, $gutter, $size)
+grid-column-offset($colsCount, $gutter, $size)
   $gutter = $gutter * 1px
   $gutters = ($colsCount - 1) * $gutter
   $guttersOffset = ($size) * $gutter
 
   return 'calc((((100% - %s) / %s) * %s) + %s)' % ($gutters $colsCount $size $guttersOffset)
 
-// сколько колонок занимает элемент на каждом конкретном брейкпоинте
 columns = config['columns']
 gutters = config['gutters']
 
+// сколько колонок занимает элемент на каждом конкретном брейкпоинте
 grid-size($xs, $sm, $md, $lg, $xl, $prop = 'width')
   +xs()
     {$prop} grid-column(columns['xs'], gutters['xs'], $xs)
@@ -78,3 +78,48 @@ grid-size($xs, $sm, $md, $lg, $xl, $prop = 'width')
     {$prop} grid-column(columns['lg'], gutters['lg'], $lg)
   +xl()
     {$prop} grid-column(columns['xl'], gutters['xl'], $xl)
+
+// сколько колонок отступает элемент на каждом конкретном брейкпоинте
+grid-offset($xs, $sm, $md, $lg, $xl, $prop = 'margin-left')
+  +xs()
+    {$prop} grid-column-offset(columns['xs'], gutters['xs'], $xs)
+  +sm()
+    {$prop} grid-column-offset(columns['sm'], gutters['sm'], $sm)
+  +md()
+    {$prop} grid-column-offset(columns['md'], gutters['md'], $md)
+  +lg()
+    {$prop} grid-column-offset(columns['lg'], gutters['lg'], $lg)
+  +xl()
+    {$prop} grid-column-offset(columns['xl'], gutters['xl'], $xl)
+
+// контейнер сетки с отступами из параметра "offsets" json-конфига
+offsets = config['offsets']
+
+grid-container()
+  float none
+  width 100%
+  margin 0 auto
+
+  if config.containerMaxWidth
+    max-width: config.containerMaxWidth * 1px
+  else
+    max-width 100%
+
+  +xs()
+    padding-left: offsets['xs'] * 1px
+    padding-right: offsets['xs'] * 1px
+  +sm()
+    padding-left: offsets['sm'] * 1px
+    padding-right: offsets['sm'] * 1px
+  +md()
+    padding-left: offsets['md'] * 1px
+    padding-right: offsets['md'] * 1px
+  +lg()
+    padding-left: offsets['lg'] * 1px
+    padding-right: offsets['lg'] * 1px
+  +xl()
+    padding-left: offsets['xl'] * 1px
+    padding-right: offsets['xl'] * 1px
+
+  &.is-fluid
+    max-width 100%

@@ -7,5 +7,5 @@ export default ({ store }) => {
 
   setViewportSize()
 
-  window.addEventListener('resize', debounce(setViewportSize, 100))
+  window.addEventListener('resize', debounce(setViewportSize, 16))
 }
