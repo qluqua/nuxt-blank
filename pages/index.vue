@@ -5,6 +5,7 @@
     +e.grid._fixed
       +e.col(v-for="col in columns" :key="col") {{ col }}
     +e.grid
+      +e.name {{ $t('hello') }}
       +e.info
         +e.e Grid breakpoints: {{ grid.breakpoints }}
         +e.e Grid columns: {{ grid.columns }}

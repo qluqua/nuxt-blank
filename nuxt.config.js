@@ -1,3 +1,5 @@
+import messages from './locales'
+
 module.exports = {
   mode: 'universal',
   head: {
@@ -15,7 +17,20 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    '@/tools/typescript.js'
+    '@/tools/typescript.js',
+    [
+      'nuxt-i18n', {
+        locales: [
+          { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU.js' },
+          { name: 'English', code: 'en', iso: 'en-US', file: 'en-US.js' }
+        ],
+        langDir: 'locales/',
+        defaultLocale: 'ru',
+        vueI18n: {
+          messages
+        }
+      }
+    ]
   ],
   plugins: [
     { src: '@/plugins/viewportSizeHandler.js', ssr: false },

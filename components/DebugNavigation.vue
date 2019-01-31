@@ -2,17 +2,16 @@
   include ../tools/all
 
   +b.debug-navigation
-    +e.NUXT-LINK.link(v-for="(route, index) in routes" :key="index" :to="route.path") {{ route.name }}
+    <nuxt-link :to="switchLocalePath('ru')">Русский</nuxt-link> /
+    <nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
+    | &nbsp;&mdash;&nbsp;
+    +e.NUXT-LINK.link(:to="localePath('index')") {{ $t('pages.index') }}
+    +e.NUXT-LINK.link(:to="localePath('test')") {{ $t('pages.test') }}
 </template>
 
 <script lang="ts">
 export default {
   name: 'DebugNavigation',
-  computed: {
-    routes() {
-      return this.$router.options.routes.reverse()
-    },
-  },
 }
 </script>
 
