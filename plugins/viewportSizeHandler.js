@@ -1,9 +1,8 @@
 import { debounce } from 'lodash-es'
-import state from '@/store/modules/ui/state'
 
 export default ({ store }) => {
   const viewportSizeHandler = () => {
-    const queriesAll = Object.entries(state.grid.queries) as any[]
+    const queriesAll = Object.entries(store.state.ui.grid.queries)
     const queriesCurrent = queriesAll.filter(query => window.matchMedia(query[1]).matches)
     const breakpoint = queriesCurrent.find(rule => rule[0].length === 2)[0]
 

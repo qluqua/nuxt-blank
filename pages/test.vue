@@ -3,7 +3,9 @@
 
   +b.page
     +e.H1.title {{ id }}
-    IconSvg(icon="twitter" class="page__icon")
+    IconSvg(icon="logo" class="page__icon")
+    IconSvg(icon="arrow-left" class="page__icon")
+    IconSvg(icon="arrow-right" class="page__icon")
     +e.PRE.test-data(v-if="testData") {{ testData }}
 
     //- @TODO: [Vue warn]: The client-side rendered virtual DOM tree is not matching server-rendered content. This is likely caused by incorrect HTML markup, for example nesting block-level elements inside <p>, or missing <tbody>. Bailing hydration and performing full client-side render.

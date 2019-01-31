@@ -1,6 +1,18 @@
-import axios from 'axios'
+// import axios from 'axios'
 
-export default {
+export const state = () => ({
+
+})
+
+export const getters = {
+
+}
+
+export const mutations = {
+
+}
+
+export const actions = {
   // async getTestData({ commit }) {
   //   try {
   //     const { data } = await axios.get('https://jsonplaceholder.typicode.com/todos/1')
