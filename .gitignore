@@ -8,6 +8,9 @@
 
 /libs/swagger
 
+/static/sitemap.xml
+/static/sitemap.xml.gz
+
 # Created by .ignore support plugin (hsz.mobi)
 ### Node template
 # Logs

@@ -28,7 +28,8 @@ export default {
     ...mapGetters('ui', [
       'columns',
       'gutter',
-      'offset'
+      'offset',
+      'columnWidth'
     ]),
     ...mapState('ui', [
       'windowWidth',

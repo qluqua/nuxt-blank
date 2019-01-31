@@ -15,8 +15,8 @@ module.exports = {
   css: ['@/styles/app.styl'],
   loading: { color: '#fff' },
   modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios',
+    '@nuxtjs/axios', // Doc: https://github.com/nuxt-community/axios-module#usage
+    '@nuxtjs/sitemap', // https://github.com/nuxt-community/sitemap-module
     '@/tools/typescript.js',
     [
       'nuxt-i18n', {
@@ -71,5 +71,25 @@ module.exports = {
         useShortDoctype: false
       }
     }
+  },
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://example.com',
+    cacheTime: 1000 * 60 * 15,
+    gzip: true,
+    generate: true, // Enable me when using nuxt generate
+    exclude: [
+      '/secret',
+      '/admin/**'
+    ],
+    // routes: [
+    //   '/page/1',
+    //   {
+    //     url: '/page/2',
+    //     changefreq: 'daily',
+    //     priority: 1,
+    //     lastmodISO: '2017-06-30T13:30:00.000Z'
+    //   }
+    // ]
   }
 }
