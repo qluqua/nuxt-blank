@@ -15,9 +15,10 @@ module.exports = {
   css: ['@/styles/app.styl'],
   loading: { color: '#fff' },
   modules: [
-    '@nuxtjs/axios', // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/sitemap', // https://github.com/nuxt-community/sitemap-module
     '@/tools/typescript.js',
+    '@nuxtjs/axios',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/sentry',
     [
       'nuxt-i18n', {
         locales: [
@@ -91,5 +92,9 @@ module.exports = {
     //     lastmodISO: '2017-06-30T13:30:00.000Z'
     //   }
     // ]
-  }
+  },
+  // sentry: {
+  //   dsn: '', // Enter your project's DSN here
+  //   config: {}, // Additional config
+  // }
 }
