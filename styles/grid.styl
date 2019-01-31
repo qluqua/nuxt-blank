@@ -95,6 +95,18 @@ grid-offset($xs, $sm, $md, $lg, $xl, $prop = 'margin-left')
 // контейнер сетки с отступами из параметра "offsets" json-конфига
 offsets = config['offsets']
 
+grid-container-offset($prop = 'padding-left')
+  +xs()
+    {$prop}: offsets['xs'] * 1px
+  +sm()
+    {$prop}: offsets['sm'] * 1px
+  +md()
+    {$prop}: offsets['md'] * 1px
+  +lg()
+    {$prop}: offsets['lg'] * 1px
+  +xl()
+    {$prop}: offsets['xl'] * 1px
+
 grid-container()
   float none
   width 100%
@@ -105,21 +117,8 @@ grid-container()
   else
     max-width 100%
 
-  +xs()
-    padding-left: offsets['xs'] * 1px
-    padding-right: offsets['xs'] * 1px
-  +sm()
-    padding-left: offsets['sm'] * 1px
-    padding-right: offsets['sm'] * 1px
-  +md()
-    padding-left: offsets['md'] * 1px
-    padding-right: offsets['md'] * 1px
-  +lg()
-    padding-left: offsets['lg'] * 1px
-    padding-right: offsets['lg'] * 1px
-  +xl()
-    padding-left: offsets['xl'] * 1px
-    padding-right: offsets['xl'] * 1px
+  grid-container-offset('padding-right')
+  grid-container-offset('padding-left')
 
   &.is-fluid
     max-width 100%
