@@ -13,6 +13,7 @@
         +e.e Grid-container offsets: {{ grid.offsets }}
         hr
         +e.e breakpoint: <strong>{{ breakpoint }}</strong> width: <strong>{{ windowWidth }}</strong> columns count: <strong>{{ columns }}</strong> gutter: <strong>{{ gutter }}</strong> offset: <strong>{{ offset }}</strong>
+        +e.e Column width: {{ columnWidth }}
     +e.grid
       +e.row(v-for="i in 12" :key="i")
         +e.cell cell
