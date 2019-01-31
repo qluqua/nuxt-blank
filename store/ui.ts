@@ -18,6 +18,13 @@ export const getters = {
   columns(state) { return state.grid.columns[state.breakpoint] },
   gutter(state) { return state.grid.gutters[state.breakpoint] },
   offset(state) { return state.grid.offsets[state.breakpoint] },
+  columnWidth(state, getters) {
+    const { windowWidth } = state
+    const { columns, gutter, offset } = getters
+    const colWidth = (windowWidth - (offset * 2) - (gutter * (columns - 1))) / columns
+
+    return Math.floor(colWidth)
+  },
 }
 
 export const mutations = {

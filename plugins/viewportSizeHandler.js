@@ -6,7 +6,7 @@ export default ({ store }) => {
     const queriesCurrent = queriesAll.filter(query => window.matchMedia(query[1]).matches)
     const breakpoint = queriesCurrent.find(rule => rule[0].length === 2)[0]
 
-    store.commit('ui/updateViewportInfo', [window.innerWidth, window.innerHeight, breakpoint])
+    store.commit('ui/updateViewportInfo', [document.body.clientWidth, document.body.clientHeight, breakpoint])
   }
 
   viewportSizeHandler()
