@@ -47,6 +47,7 @@ module.exports = {
     }
   },
   router: {
+    // middleware: ['routerHandler'],
     scrollBehavior: function(to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
@@ -54,10 +55,20 @@ module.exports = {
   // rootDir: './',
   // srcDir: 'src',
   // modulesDir: '../node_modules',
+  server: {
+    port: 3000, // default: 3000
+    host: 'localhost', // default: localhost
+  },
   generate: {
     dir: 'www'
   },
   build: {
+    // webpack config
+    // extend(config, { isDev, isClient }) {
+    //   if (isClient) {
+    //     console.log(JSON.stringify(config.plugins[0]))
+    //   }
+    // },
     extractCSS: true,
     html: {
       minify: {
@@ -73,26 +84,26 @@ module.exports = {
       }
     }
   },
-  sitemap: {
-    path: '/sitemap.xml',
-    hostname: 'https://example.com',
-    cacheTime: 1000 * 60 * 15,
-    gzip: true,
-    generate: true, // Enable me when using nuxt generate
-    exclude: [
-      '/secret',
-      '/admin/**'
-    ],
-    // routes: [
-    //   '/page/1',
-    //   {
-    //     url: '/page/2',
-    //     changefreq: 'daily',
-    //     priority: 1,
-    //     lastmodISO: '2017-06-30T13:30:00.000Z'
-    //   }
-    // ]
-  },
+  // sitemap: {
+  //   path: '/sitemap.xml',
+  //   hostname: 'https://example.com',
+  //   cacheTime: 1000 * 60 * 15,
+  //   gzip: true,
+  //   generate: true, // Enable me when using nuxt generate
+  //   exclude: [
+  //     '/secret',
+  //     '/admin/**'
+  //   ],
+  //   routes: [
+  //     '/page/1',
+  //     {
+  //       url: '/page/2',
+  //       changefreq: 'daily',
+  //       priority: 1,
+  //       lastmodISO: '2017-06-30T13:30:00.000Z'
+  //     }
+  //   ]
+  // },
   // sentry: {
   //   dsn: '', // Enter your project's DSN here
   //   config: {}, // Additional config

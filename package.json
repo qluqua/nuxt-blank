@@ -13,11 +13,11 @@
     "start": "yarn dev",
     "dev": "HOST=0.0.0.0 node --inspect node_modules/.bin/nuxt",
     "prod": "yarn build && HOST=0.0.0.0 node --inspect node_modules/.bin/nuxt start",
-    "build": "nuxt build",
-    "generate": "nuxt generate",
+    "build": "nuxt build --modern=client",
+    "generate": "nuxt generate --modern=client",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "report": "nuxt build --analyze"
+    "report": "nuxt build --analyze --modern=client"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.3",
