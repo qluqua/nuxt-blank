@@ -57,7 +57,7 @@ module.exports = {
   // modulesDir: '../node_modules',
   server: {
     port: 3000, // default: 3000
-    host: 'localhost', // default: localhost
+    host: '0.0.0.0.', // default: localhost
   },
   generate: {
     dir: 'www'
