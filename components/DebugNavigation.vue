@@ -6,6 +6,7 @@
     <nuxt-link :to="switchLocalePath('en')">English</nuxt-link>
     | &nbsp;&mdash;&nbsp;
     +e.NUXT-LINK.link(:to="localePath('index')") {{ $t('pages.index') }}
+    +e.NUXT-LINK.link(:to="localePath('grid')") grid
     +e.NUXT-LINK.link(:to="localePath('test')") {{ $t('pages.test') }}
 </template>
 
@@ -23,7 +24,7 @@ export default {
   z-index 9999
   debug()
   color white
-  top 0
+  bottom 0
   right 0
   left 0
   padding 10px

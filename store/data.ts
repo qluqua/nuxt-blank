@@ -1,7 +1,7 @@
 // import axios from 'axios'
 
 export const state = () => ({
-
+  test: null
 })
 
 export const getters = {

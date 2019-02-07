@@ -1,3 +1,5 @@
-// export default context => {
-//   console.log(context)
-// }
+export default context => {
+  const { store } = context
+
+  store.dispatch('ui/hideAllOverlayElements')
+}

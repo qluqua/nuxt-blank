@@ -1,5 +1,10 @@
 config = json('grid-config.json', { hash: true, leave-strings: true  })
 
+breakpoints = config['breakpoints']
+offsets = config['offsets']
+columns = config['columns']
+gutters = config['gutters']
+
 // Ширина экрана в промежутке между двумя брейкпоинтами
 xs()
   @media config.queries.xs
@@ -63,9 +68,6 @@ grid-column-offset($colsCount, $gutter, $size)
 
   return 'calc((((100% - %s) / %s) * %s) + %s)' % ($gutters $colsCount $size $guttersOffset)
 
-columns = config['columns']
-gutters = config['gutters']
-
 // сколько колонок занимает элемент на каждом конкретном брейкпоинте
 grid-size($xs, $sm, $md, $lg, $xl, $prop = 'width')
   +xs()
@@ -93,8 +95,6 @@ grid-offset($xs, $sm, $md, $lg, $xl, $prop = 'margin-left')
     {$prop} grid-column-offset(columns['xl'], gutters['xl'], $xl)
 
 // контейнер сетки с отступами из параметра "offsets" json-конфига
-offsets = config['offsets']
-
 grid-container-offset($prop = 'padding-left')
   +xs()
     {$prop}: offsets['xs'] * 1px

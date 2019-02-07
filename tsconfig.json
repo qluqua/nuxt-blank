@@ -1,10 +1,18 @@
 {
+  "extends": "@nuxt/typescript-edge",
   "compilerOptions": {
+    "types": [
+      "@types/node",
+      "@nuxt/vue-app-edge"
+    ],
     "target": "es5",
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": false,
     "jsx": "preserve",
+    "noEmit": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "strict": false,
     "importHelpers": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

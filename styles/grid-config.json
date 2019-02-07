@@ -4,7 +4,7 @@
     "sm": 600,
     "md": 1000,
     "lg": 1280,
-    "xl": 1800
+    "xl": 1920
   },
   "columns": {
     "xs": 4,
@@ -22,7 +22,7 @@
   },
   "offsets": {
     "xs": 30,
-    "sm": 40,
+    "sm": 35,
     "md": 30,
     "lg": 60,
     "xl": 70
@@ -31,12 +31,12 @@
     "xs": "(max-width: 599px)",
     "sm": "(min-width: 600px) and (max-width: 999px)",
     "md": "(min-width: 1000px) and (max-width: 1279px)",
-    "lg": "(min-width: 1280px) and (max-width: 1799px)",
-    "xl": "(min-width: 1800px)",
+    "lg": "(min-width: 1280px) and (max-width: 1919px)",
+    "xl": "(min-width: 1920px)",
 
     "lt-md": "(max-width: 999px)",
     "lt-lg": "(max-width: 1279px)",
-    "lt-xl": "(max-width: 1799px)",
+    "lt-xl": "(max-width: 1919px)",
 
     "gt-sm": "(min-width: 600px)",
     "gt-md": "(min-width: 1000px)",

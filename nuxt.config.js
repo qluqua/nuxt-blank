@@ -18,7 +18,6 @@ module.exports = {
     '@/tools/typescript.js',
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
-    '@nuxtjs/sentry',
     [
       'nuxt-i18n', {
         locales: [
@@ -36,7 +35,8 @@ module.exports = {
   plugins: [
     { src: '@/plugins/viewportSizeHandler.js', ssr: false },
     { src: '@/plugins/clientParametersHandler.ts', ssr: false },
-    { src: '@/plugins/svgxuse.ts', ssr: false }
+    { src: '@/plugins/svgxuse.ts', ssr: false },
+    { src: '@/plugins/keyboardHandler.ts', ssr: false },
   ],
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
@@ -47,17 +47,14 @@ module.exports = {
     }
   },
   router: {
-    // middleware: ['routerHandler'],
+    middleware: ['routerHandler'],
     scrollBehavior: function(to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
   },
-  // rootDir: './',
-  // srcDir: 'src',
-  // modulesDir: '../node_modules',
   server: {
     port: 3000, // default: 3000
-    host: '0.0.0.0.', // default: localhost
+    host: '0.0.0.0', // default: localhost
   },
   generate: {
     dir: 'www'

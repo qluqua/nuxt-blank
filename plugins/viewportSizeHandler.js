@@ -11,5 +11,6 @@ export default ({ store }) => {
 
   viewportSizeHandler()
 
-  window.addEventListener('resize', debounce(viewportSizeHandler, 16))
+  window.addEventListener('resize', viewportSizeHandler)
+  // window.addEventListener('resize', debounce(viewportSizeHandler, 16))
 }

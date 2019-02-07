@@ -1,7 +1,7 @@
 <template lang="pug">
   include ../tools/all
 
-  #app
+  +b.app#app(v-cloak)
     DebugNavigation
     nuxt
 </template>
@@ -12,7 +12,7 @@ import DebugNavigation from '@/components/DebugNavigation.vue'
 export default {
   name: 'default',
   components: {
-    DebugNavigation
+    DebugNavigation,
   }
 }
 </script>
@@ -20,6 +20,6 @@ export default {
 <style lang="stylus">
 @import '../styles/tools'
 
-body
-  padding-top 40px
+.app
+  //
 </style>
