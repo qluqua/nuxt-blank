@@ -26,6 +26,11 @@ module.exports = {
         ],
         langDir: 'locales/',
         defaultLocale: 'ru',
+        detectBrowserLanguage: {
+          useCookie: true,
+          alwaysRedirect: true,
+          cookieKey: 'i18n_redirected'
+        },
         vueI18n: {
           messages
         }
