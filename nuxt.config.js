@@ -18,24 +18,22 @@ module.exports = {
     '@/tools/typescript.js',
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
-    [
-      'nuxt-i18n', {
-        locales: [
-          { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU.js' },
-          { name: 'English', code: 'en', iso: 'en-US', file: 'en-US.js' }
-        ],
-        langDir: 'locales/',
-        defaultLocale: 'ru',
-        detectBrowserLanguage: {
-          useCookie: true,
-          alwaysRedirect: true,
-          cookieKey: 'i18n_redirected'
-        },
-        vueI18n: {
-          messages
-        }
+    ['nuxt-i18n', {
+      locales: [
+        { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU.js' },
+        { name: 'English', code: 'en', iso: 'en-US', file: 'en-US.js' }
+      ],
+      langDir: 'locales/',
+      defaultLocale: 'ru',
+      detectBrowserLanguage: {
+        useCookie: true,
+        alwaysRedirect: false,
+        cookieKey: 'i18n_redirected'
+      },
+      vueI18n: {
+        messages
       }
-    ]
+    }]
   ],
   plugins: [
     { src: '@/plugins/viewportSizeHandler.js', ssr: false },
