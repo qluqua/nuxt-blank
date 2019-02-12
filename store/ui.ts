@@ -44,7 +44,7 @@ export const mutations = {
   isEdge(state) { state.isEdge = true },
   setBrowser(state, payload) { state.browser = payload },
   setBreakpoint(state, payload: string) { state.breakpoint = payload },
-  setLocale(state, payload: string) { state.locale = payload },
+  // setLocale(state, payload: string) { state.locale = payload },
 }
 
 export const actions = {
