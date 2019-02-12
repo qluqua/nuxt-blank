@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/tools'
+@import '~@/styles/tools'
 
 random(min, max)
   return floor(math(0, "random") * max + min)

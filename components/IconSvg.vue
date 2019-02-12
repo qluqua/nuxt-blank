@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/tools'
+@import '~@/styles/tools'
 
 .icon-svg
   font-size 0

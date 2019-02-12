@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/tools'
+@import '~@/styles/tools'
 
 .debug-navigation
   position fixed

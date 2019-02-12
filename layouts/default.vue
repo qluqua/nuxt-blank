@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import '../styles/tools'
+@import '~@/styles/tools'
 
 .app
   //
