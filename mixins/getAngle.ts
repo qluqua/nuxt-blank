@@ -1,13 +1,18 @@
 export default function(x: number, y: number, element: HTMLElement) {
+  // https://stackoverflow.com/questions/19618745/css3-rotate-transition-doesnt-take-shortest-way
+  // Решаем порблему с css-transition - нормализуем угол поворота
+  const closestEquivalentAngle = (from, to) => from + ((((to - from) % 360) + 540) % 360) - 180
+
+  // Вычисляем новый угол
   const { top, left, width } =  element.getBoundingClientRect()
   const elX = Math.round(left + width / 2)
   const elY = Math.round(top + width / 2)
   const atan2 = Math.atan2(y - elY, x - elX)
-  let angle = Math.round(atan2 * (180 / Math.PI))
+  const angleNew = Math.round(atan2 * (180 / Math.PI)) + 90 // +90 что бы 0 градусов было по центру сверху
 
-  if (angle < 0) {
-    angle = 360 - (-angle)
-  }
+  // Вычисляем старый угол
+  const style: string = element.getAttribute('style')
+  const angleOld = style && +style.split('rotate(')[1].split('deg')[0]
 
-  return angle
+  return angleOld ? closestEquivalentAngle(angleOld, angleNew) : angleNew
 }
