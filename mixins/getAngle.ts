@@ -11,8 +11,13 @@ export default function(x: number, y: number, element: HTMLElement) {
   const angleNew = Math.round(atan2 * (180 / Math.PI)) + 90 // +90 что бы 0 градусов было по центру сверху
 
   // Вычисляем старый угол
-  const style: string = element.getAttribute('style')
-  const angleOld = style && +style.split('rotate(')[1].split('deg')[0]
+  let angleOld = null
+
+  try {
+    angleOld = +element.getAttribute('style').split('rostate(')[1].split('deg')[0]
+  } catch (error) {
+    // console.log(error)
+  }
 
   return angleOld ? closestEquivalentAngle(angleOld, angleNew) : angleNew
 }
