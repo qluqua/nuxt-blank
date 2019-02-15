@@ -9,6 +9,7 @@
     ]
   },
   "rules": {
+    "curly": false,
     "no-debugger": false,
     "quotemark": [true, "single"],
     "indent": [true, "spaces", 2],
@@ -29,6 +30,7 @@
     "max-line-length": false,
     "no-unused-expression": false,
     "member-access": false,
-    "no-reference": false
+    "no-reference": false,
+    "no-var-requires": false
   }
 }

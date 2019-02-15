@@ -3,7 +3,7 @@
 export default ({ store }) => {
   const viewportSizeHandler = () => {
     const queriesAll = Object.entries(store.state.ui.grid.queries)
-    const queriesCurrent = queriesAll.filter(query => window.matchMedia(query[1]).matches)
+    const queriesCurrent = queriesAll.filter((query: any) => window.matchMedia(query[1]).matches)
     const breakpoint = queriesCurrent.find(rule => rule[0].length === 2)[0]
     const { offsetWidth, offsetHeight } = document.documentElement
     const scrollbarWidth = window.innerWidth - offsetWidth

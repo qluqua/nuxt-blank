@@ -1,38 +1,5 @@
 {
-  "extends": "@nuxt/typescript-edge",
-  "compilerOptions": {
-    "types": [
-      "@types/node",
-      "@nuxt/vue-app-edge"
-    ],
-    "target": "es5",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "noEmit": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "strict": false,
-    "importHelpers": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "noImplicitAny": false,
-    "noImplicitThis": false,
-    "allowJs": true,
-    "removeComments": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"]
-    },
-    "lib": [
-      "es2017",
-      "dom",
-      "scripthost"
-    ]
-  },
+  "extends": "@nuxt/typescript",
   "include": [
     "**/*.ts",
     "**/*.tsx",
@@ -40,5 +7,42 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": [
+      "@types/node",
+      "@nuxt/vue-app"
+    ],
+    "target": "es5",
+    "module": "esnext",
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    },
+    "lib": [
+      "es2017",
+      "dom",
+      "scripthost"
+    ],
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "strict": false,
+    "sourceMap": true,
+    "allowJs": true,
+    "removeComments": true,
+    "noEmit": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false
+  }
 }

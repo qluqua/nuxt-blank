@@ -15,13 +15,12 @@ module.exports = {
   css: ['@/styles/app.styl'],
   loading: { color: '#fff' },
   modules: [
-    '@/tools/typescript.js',
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
     ['nuxt-i18n', {
       locales: [
-        { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU.js' },
-        { name: 'English', code: 'en', iso: 'en-US', file: 'en-US.js' }
+        { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU.ts' },
+        { name: 'English', code: 'en', iso: 'en-US', file: 'en-US.ts' }
       ],
       langDir: 'locales/',
       defaultLocale: 'ru',
@@ -36,7 +35,7 @@ module.exports = {
     }]
   ],
   plugins: [
-    { src: '@/plugins/viewportSizeHandler.js', ssr: false },
+    { src: '@/plugins/viewportSizeHandler.ts', ssr: false },
     { src: '@/plugins/clientParametersHandler.ts', ssr: false },
     { src: '@/plugins/svgxuse.ts', ssr: false },
     { src: '@/plugins/keyboardHandler.ts', ssr: false },
@@ -51,7 +50,7 @@ module.exports = {
   },
   router: {
     middleware: ['routerHandler'],
-    scrollBehavior: function(to, from, savedPosition) {
+    scrollBehavior(to, from, savedPosition) {
       return { x: 0, y: 0 }
     }
   },
