@@ -6,7 +6,7 @@
     +e.PRE.test-data(v-if="testData") {{ testData }}
 </template>
 
-<script>
+<script lang="ts">
 import axios from 'axios'
 import { mapState } from 'vuex'
 import IconSvg from '@/components/IconSvg.vue'

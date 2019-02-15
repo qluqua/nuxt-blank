@@ -2,7 +2,7 @@
   include ../tools/all
 
   +b.debug-navigation
-    +e.NUXT-LINK.locale(v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)") {{ locale.code }}
+    +e.NUXT-LINK.locale(v-for="locale in availableLocales" :key="locale" :to="switchLocalePath(locale)") {{ locale }}
     | &nbsp;&mdash;&nbsp;
     +e.NUXT-LINK.link(:to="localePath('index')") {{ $t('pages.index') }}
     +e.NUXT-LINK.link(:to="localePath('grid')") grid
@@ -10,11 +10,15 @@
 </template>
 
 <script lang="ts">
+import locales from '@/locales'
+
 export default {
   name: 'DebugNavigation',
   computed: {
     availableLocales() {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+      return Object.keys(locales).filter(locale => {
+        return locale !== this.$store.state.i18n.locale
+      })
     }
   }
 }
