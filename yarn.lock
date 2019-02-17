@@ -7297,27 +7297,18 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-i18n@^5.8.0:
-  version "5.8.1"
-  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-5.8.1.tgz#fcb469d9fa1acd20461430f41ca521508a0f521e"
-  integrity sha512-hC+BwuFw2NqrpO5clMbSQDtFeJazKHO8glJ0C9MajR74Kvs00gLwbe5grMCZVyLnPYMsQ7QkoRVKieFBj8lhbg==
+nuxt-i18n@^5.8.2:
+  version "5.8.2"
+  resolved "https://registry.yarnpkg.com/nuxt-i18n/-/nuxt-i18n-5.8.2.tgz#c184c3caec47b68f179546a9534c8d634e71f822"
+  integrity sha512-liDak7J8n80VL1tAyooWIuDpLMzRw60g+bvocN+nEawgDsvrjuUSQsNXQq0qbk0Mo0mqSnDxoCiQnohCNxrMSQ==
   dependencies:
     "@kazupon/vue-i18n-loader" "^0.3.0"
     acorn "^6.0.7"
     acorn-walk "^6.1.1"
     cookie "^0.3.1"
     js-cookie "^2.2.0"
-    vue-i18n "^8.8.0"
+    vue-i18n "^8.8.1"
     vue-i18n-extensions "^0.2.0"
-
-nuxt-property-decorator@^1.2.0:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/nuxt-property-decorator/-/nuxt-property-decorator-1.3.1.tgz#92518359296b3b58e75869e44fac4cfe21e5a713"
-  integrity sha512-+gWaL98841R+TnH1ZPGxjcV25U6+vA8kSDfHXRyVIR/ls8LGlQVT6iUSX59dTyx0QT6ARzugNrSvR8Uq6MrXJg==
-  dependencies:
-    reflect-metadata "^0.1.12"
-    vue-class-component "6.3.2"
-    vuex-class "^0.3.1"
 
 nuxt-ts@^2.4.3:
   version "2.4.3"
@@ -9001,11 +8992,6 @@ redent@^1.0.0:
   dependencies:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
-
-reflect-metadata@^0.1.12:
-  version "0.1.13"
-  resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
-  integrity sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==
 
 regenerate-unicode-properties@^7.0.0:
   version "7.0.0"
@@ -10884,11 +10870,6 @@ void-elements@^2.0.1:
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
   integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
-vue-class-component@6.3.2:
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-6.3.2.tgz#e6037e84d1df2af3bde4f455e50ca1b9eec02be6"
-  integrity sha512-cH208IoM+jgZyEf/g7mnFyofwPDJTM/QvBNhYMjqGB8fCsRyTf68rH2ISw/G20tJv+5mIThQ3upKwoL4jLTr1A==
-
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-2.0.3.tgz#c268c96c6d94cfe3d938a5f7593959b0ca3360d1"
@@ -10913,7 +10894,7 @@ vue-i18n-extensions@^0.2.0:
   dependencies:
     vm2 "^3.5.0"
 
-vue-i18n@^8.8.0:
+vue-i18n@^8.8.1:
   version "8.8.1"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.8.1.tgz#566e087b7131cd8439673f18ffd46da7e1afe95c"
   integrity sha512-phAJs7iF06QxMY1Thd5c6WJnRSSp4fOG/352eiuRTWMlqBEOFApVa0q1TD//NEguKBO0qCz0gEckFpHWJzJA2Q==

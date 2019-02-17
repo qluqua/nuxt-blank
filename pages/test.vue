@@ -9,15 +9,11 @@
 <script lang="ts">
 import axios from 'axios'
 import { mapState } from 'vuex'
-import IconSvg from '@/components/IconSvg.vue'
 import uniqueId from '@/mixins/uniqueId.ts'
 import sleep from '@/mixins/sleep.ts'
 
 export default {
   name: 'test',
-  components: {
-    IconSvg,
-  },
   computed: {
     ...mapState('ui', [
       'isIe',

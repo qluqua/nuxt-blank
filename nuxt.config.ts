@@ -1,6 +1,6 @@
 import messages from './locales'
 
-module.exports = {
+export default {
   mode: 'universal',
   head: {
     title: 'nuxt-blank',
