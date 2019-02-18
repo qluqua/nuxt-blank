@@ -18,6 +18,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
     ['nuxt-i18n', {
+      parsePages: false,
       locales: [
         { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU' },
         { name: 'English', code: 'en', iso: 'en-US', file: 'en-US' }
