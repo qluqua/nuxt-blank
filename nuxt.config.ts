@@ -69,6 +69,10 @@ export default {
     //     console.log(JSON.stringify(config.plugins[0]))
     //   }
     // },
+    // HMR config, options: https://github.com/webpack-contrib/webpack-hot-middleware#config
+    hotMiddleware: {
+      noInfo: true
+    },
     extractCSS: true,
     html: {
       minify: {
