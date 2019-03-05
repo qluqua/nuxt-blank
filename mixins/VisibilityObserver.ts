@@ -1,7 +1,4 @@
 /** Обзервер вызывает коллбэк при появлении HTML-элемента (target) в области видимости */
-
-import 'intersection-observer' // IE polyfill for Intersection Observer API
-
 interface Options {
   /** HTML-элемент, который должен появиться в зоне видимости для вызова коллбэка ifIntoView */
   target: HTMLElement

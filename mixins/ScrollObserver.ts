@@ -2,9 +2,6 @@
  * @description "Element is visible in viewport" handler. Based on intersection observer api.
  * https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
  */
-
-import 'intersection-observer' // IE poyfill for Intersection Observer API
-
 interface ScrollObserverOptions {
   /**
    * Node-лист или массив HTML-элементов, каждый из которых будет получать
