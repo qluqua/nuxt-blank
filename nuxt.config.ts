@@ -63,6 +63,7 @@ export default {
     dir: 'www'
   },
   build: {
+    transpile: ['lodash-es'],
     // webpack config
     // extend(config, { isDev, isClient }) {
     //   if (isClient) {
