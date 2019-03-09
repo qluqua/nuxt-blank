@@ -36,6 +36,7 @@ export default {
     }]
   ],
   plugins: [
+    { src: '@/plugins/intersectionObserver.ts', ssr: false },
     { src: '@/plugins/viewportSizeHandler.ts', ssr: false },
     { src: '@/plugins/clientParametersHandler.ts', ssr: false },
     { src: '@/plugins/svgxuse.ts', ssr: false },
