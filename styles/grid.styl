@@ -56,7 +56,7 @@ gt-lg()
 grid-column($colsCount, $gutter, $size)
   $gutter = $gutter * 1px
   $gutters = ($colsCount - 1) * $gutter
-  $innerGutters = (ceil($size) - 1) * $gutter
+  $innerGutters = ((ceil($size) - 1) > 0 ? (ceil($size) - 1) : 0) * $gutter
 
   return 'calc((((100% - %s) / %s) * %s) + %s)' % ($gutters $colsCount $size $innerGutters)
 
