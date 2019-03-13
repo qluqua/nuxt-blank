@@ -1,4 +1,5 @@
 # **!ATTENTION: READ CAREFULLY!**
+* **Don't use property type `Array` in typescript components, it will ruin your day**
 ```
 <script lang="ts">
 import Vue from 'vue'
@@ -6,7 +7,7 @@ import Vue from 'vue'
 export default Vue.extend({
   name: 'ExampleComponent',
   props: {
-    /** **DON'T DO IT, USE Object INSTEAD, UNLESS YOU WANT SPEND HOURS IN PAIN SUFFERING OF MISTERIOS ERRORS** */
+    /** DON'T DO IT, USE Object INSTEAD, UNLESS YOU WANT SPEND HOURS IN PAIN SUFFERING OF MISTERIOS ERRORS */
     testProp: Array 
   },
 })
