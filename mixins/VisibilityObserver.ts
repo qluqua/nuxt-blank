@@ -1,6 +1,6 @@
 /** Обзервер вызывает коллбэк при появлении HTML-элементов (targets) в области видимости */
 interface Options {
-  /** HTML-элемент или массив/нодлист элементов */
+  /** HTML-элемент или массив/нодлист/коллекцию элементов */
   targets: Element | Element[] | NodeList | HTMLCollection
   /** Отступ от края элемента - величина видимой части элемента для вызова коллбэка ifIntoView */
   offset: number
@@ -52,6 +52,8 @@ export default class VisibilityObserver {
   }
 
   destroy() {
-    this.observer.disconnect()
+    if (this.observer) {
+      this.observer.disconnect()
+    }
   }
 }
