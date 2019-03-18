@@ -1,7 +1,7 @@
 /** Обзервер вызывает коллбэк при появлении HTML-элементов (targets) в области видимости */
 interface Options {
   /** HTML-элемент или массив/нодлист элементов */
-  targets: Element | Element[] | NodeList
+  targets: Element | Element[] | NodeList | HTMLCollection
   /** Отступ от края элемента - величина видимой части элемента для вызова коллбэка ifIntoView */
   offset: number
   /** Внимание, **this** в этом коллбеке ссылается на текущий элемент. Коллбэк, срабатывающий когда элемент появляется в зоне видимости с учетом offset */
@@ -18,7 +18,7 @@ export default class VisibilityObserver {
     this.options = options
     let targets = options.targets;
 
-    if (targets instanceof NodeList) {
+    if (targets instanceof NodeList || targets instanceof HTMLCollection) {
       targets = Array.from(targets) as Element[]
     }
 
