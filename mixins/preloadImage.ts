@@ -10,16 +10,20 @@ export default (
   urls: string | string[]
   ): Promise<any> => {
   return new Promise((resolve, reject) => {
-    const image = new Image() as HTMLImageElement
+    try {
+      const image = new Image() as HTMLImageElement
 
-    if (typeof urls === 'string') {
-      urls = [urls]
-    }
+      if (typeof urls === 'string') {
+        urls = [urls]
+      }
 
-    for (const url of urls) {
-      image.onload = resolve
-      image.onerror = reject
-      image.src = url
+      for (const url of urls) {
+        image.onload = resolve
+        image.onerror = reject
+        image.src = url
+      }
+    } catch (error) {
+      console.error(`is server: ${process.server} >>> preloadImage error: ${error}`)
     }
   })
 }
