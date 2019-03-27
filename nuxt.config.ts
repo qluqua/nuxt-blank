@@ -14,9 +14,13 @@ export default {
   },
   css: ['@/styles/app.styl'],
   loading: { color: '#fff' },
-  // proxy: [
-  //   'http://your-api-base-url.com/api' // redirects all request from '/api' to this url
-  // ],
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+  },
+  // proxy: {
+  //   // redirects all request from '/api' to this url
+  //   '/api': 'http://your-api-base-url.com'
+  // },
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
@@ -46,9 +50,6 @@ export default {
     { src: '@/plugins/svgxuse.ts', ssr: false },
     { src: '@/plugins/keyboardHandler.ts', ssr: false },
   ],
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-  },
   vue: {
     config: {
       productionTip: false
