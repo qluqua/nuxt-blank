@@ -14,9 +14,13 @@ export default {
   },
   css: ['@/styles/app.styl'],
   loading: { color: '#fff' },
+  // proxy: [
+  //   'http://your-api-base-url.com/api' // redirects all request from '/api' to this url
+  // ],
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
+    '@nuxtjs/proxy',
     ['nuxt-i18n', {
       parsePages: false,
       locales: [
