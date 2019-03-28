@@ -24,7 +24,7 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
-    '@nuxtjs/proxy',
+    // '@nuxtjs/proxy',
     ['nuxt-i18n', {
       parsePages: false,
       locales: [
