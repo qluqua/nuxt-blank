@@ -70,15 +70,8 @@ export default {
   },
   build: {
     transpile: ['lodash-es'],
-    // webpack config
-    // extend(config, { isDev, isClient }) {
-    //   if (isClient) {
-    //     console.log(JSON.stringify(config.plugins[0]))
-    //   }
-    // },
-    // HMR config, options: https://github.com/webpack-contrib/webpack-hot-middleware#config
-    hotMiddleware: {
-      noInfo: true
+    extend(config) {
+      config.bail = true
     },
     extractCSS: true,
     html: {
