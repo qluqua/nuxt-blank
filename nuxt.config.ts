@@ -31,6 +31,7 @@ export default {
         { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU' },
         { name: 'English', code: 'en', iso: 'en-US', file: 'en-US' }
       ],
+      lazy: true,
       langDir: 'locales/',
       defaultLocale: 'ru',
       detectBrowserLanguage: {
