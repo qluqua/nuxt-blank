@@ -7,6 +7,7 @@
     +e.NUXT-LINK.link(:to="localePath('index')") {{ $t('pages.index') }}
     +e.NUXT-LINK.link(:to="localePath('grid')") grid
     +e.NUXT-LINK.link(:to="localePath('test')") {{ $t('pages.test') }}
+    +e.NUXT-LINK.link(:to="localePath('get-distance')") get-distance
 </template>
 
 <script lang="ts">

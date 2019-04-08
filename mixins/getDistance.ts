@@ -1,66 +1,77 @@
-export default function(x: number, y: number, element: HTMLElement) {
-  const { top, right, bottom, left } = element.getBoundingClientRect()
+export default function(
+  /** Mouse X position */
+  mouseX: number,
+  /** Mouse Y position */
+  mouseY: number,
+  /** HTMLElement getBoundingClientRect().top */
+  top: number,
+  /** HTMLElement getBoundingClientRect().right */
+  right: number,
+  /** HTMLElement getBoundingClientRect().bottom */
+  bottom: number,
+  /** HTMLElement getBoundingClientRect().left */
+  left: number): number {
 
-  // лево верх
-  if (x < left && y < top) {
+  // left top
+  if (mouseX < left && mouseY < top) {
     return Math.floor(
       Math.sqrt(
-        Math.pow(left - x, 2) +
-        Math.pow(top - y, 2)
+        Math.pow(left - mouseX, 2) +
+        Math.pow(top - mouseY, 2)
       )
     )
   }
 
-  // лево центр
-  if (x < left && y >= top && y <= bottom) {
-    return left - x
+  // left center
+  if (mouseX < left && mouseY >= top && mouseY <= bottom) {
+    return Math.floor(left - mouseX)
   }
 
-  // лево низ
-  if (x < left && y > bottom) {
+  // left bottom
+  if (mouseX < left && mouseY > bottom) {
     return Math.floor(
       Math.sqrt(
-        Math.pow(left - x, 2) +
-        Math.pow(y - bottom, 2)
+        Math.pow(left - mouseX, 2) +
+        Math.pow(mouseY - bottom, 2)
       )
     )
   }
 
-  // центр верх
-  if (x >= left && x <= right && y < top) {
-    return top - y
+  // center top
+  if (mouseX >= left && mouseX <= right && mouseY < top) {
+    return Math.floor(top - mouseY)
   }
 
-  // центр низ
-  if (x >= left && x <= right && y > bottom) {
-    return y - bottom
+  // center bottom
+  if (mouseX >= left && mouseX <= right && mouseY > bottom) {
+    return Math.floor(mouseY - bottom)
   }
 
-  // право верх
-  if (x > right && y < top) {
+  // right top
+  if (mouseX > right && mouseY < top) {
     return Math.floor(
       Math.sqrt(
-        Math.pow(x - right, 2) +
-        Math.pow(top - y, 2)
+        Math.pow(mouseX - right, 2) +
+        Math.pow(top - mouseY, 2)
       )
     )
   }
 
-  // право центр
-  if (x > right && y >= top && y <= bottom) {
-    return x - right
+  // right center
+  if (mouseX > right && mouseY >= top && mouseY <= bottom) {
+    return Math.floor(mouseX - right)
   }
 
-  // право низ
-  if (x > right && y > bottom) {
+  // right bottom
+  if (mouseX > right && mouseY > bottom) {
     return Math.floor(
       Math.sqrt(
-        Math.pow(x - right, 2) +
-        Math.pow(y - bottom, 2)
+        Math.pow(mouseX - right, 2) +
+        Math.pow(mouseY - bottom, 2)
       )
     )
   }
 
-  // внутри
+  // inside
   return 0
 }

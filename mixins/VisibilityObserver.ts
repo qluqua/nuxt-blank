@@ -1,12 +1,12 @@
-/** Обзервер вызывает коллбэк при появлении HTML-элемента (target) в области видимости */
+/** Обзервер вызывает коллбэк при появлении HTML-элементов (targets) в области видимости */
 interface Options {
-  /** HTML-элемент, который должен появиться в зоне видимости для вызова коллбэка ifIntoView */
-  target: HTMLElement
+  /** HTML-элемент или массив/нодлист/коллекцию элементов */
+  targets: Element | Element[] | NodeList | HTMLCollection
   /** Отступ от края элемента - величина видимой части элемента для вызова коллбэка ifIntoView */
   offset: number
-  /** Коллбэк, срабатывающий когда элемент (target) появляется в зоне видимости с учетом offset */
+  /** Внимание, **this** в этом коллбеке ссылается на текущий элемент. Коллбэк, срабатывающий когда элемент появляется в зоне видимости с учетом offset */
   ifIntoView?: () => void
-  /** Коллбэк, срабатывающий когда target находится вне зоны видимости с учетом offset */
+  /** Внимание, **this** в этом коллбеке ссылается на текущий элемент. Коллбэк, срабатывающий когда элемент находится вне зоны видимости с учетом offset */
   ifOutOfView?: () => void
 }
 
@@ -16,29 +16,44 @@ export default class VisibilityObserver {
 
   constructor(options: Options) {
     this.options = options
-    this.init()
+    let targets = options.targets;
+
+    if (targets instanceof NodeList || targets instanceof HTMLCollection) {
+      targets = Array.from(targets) as Element[]
+    }
+
+    if (!Array.isArray(targets)) {
+      targets = [targets]
+    }
+
+    for (const target of targets) {
+      this.observe(target)
+    }
   }
 
-  init() {
-    this.observer = new IntersectionObserver(targets => {
-      const target = targets[0];
+  observe(target) {
+    this.observer = new IntersectionObserver(entries => {
+      const entry = entries[0]
 
-      if (target.isIntersecting) {
+      if (entry.isIntersecting) {
         if ('ifIntoView' in this.options) {
-          this.options.ifIntoView()
+          this.options.ifIntoView.call(target)
         }
       } else {
         if ('ifOutOfView' in this.options) {
-          this.options.ifOutOfView()
+          this.options.ifOutOfView.call(target)
         }
       }
     }, {
       rootMargin: `-${this.options.offset}px`,
     })
-    this.observer.observe(this.options.target)
+
+    this.observer.observe(target)
   }
 
   destroy() {
-    this.observer.disconnect()
+    if (this.observer) {
+      this.observer.disconnect()
+    }
   }
 }

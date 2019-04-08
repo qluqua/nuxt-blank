@@ -14,15 +14,24 @@ export default {
   },
   css: ['@/styles/app.styl'],
   loading: { color: '#fff' },
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+  },
+  // proxy: {
+  //   // redirects all request from '/api' to this url
+  //   '/api': 'http://your-api-base-url.com'
+  // },
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
+    // '@nuxtjs/proxy',
     ['nuxt-i18n', {
       parsePages: false,
       locales: [
         { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU' },
         { name: 'English', code: 'en', iso: 'en-US', file: 'en-US' }
       ],
+      lazy: true,
       langDir: 'locales/',
       defaultLocale: 'ru',
       detectBrowserLanguage: {
@@ -42,9 +51,6 @@ export default {
     { src: '@/plugins/svgxuse.ts', ssr: false },
     { src: '@/plugins/keyboardHandler.ts', ssr: false },
   ],
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-  },
   vue: {
     config: {
       productionTip: false
@@ -65,15 +71,8 @@ export default {
   },
   build: {
     transpile: ['lodash-es'],
-    // webpack config
-    // extend(config, { isDev, isClient }) {
-    //   if (isClient) {
-    //     console.log(JSON.stringify(config.plugins[0]))
-    //   }
-    // },
-    // HMR config, options: https://github.com/webpack-contrib/webpack-hot-middleware#config
-    hotMiddleware: {
-      noInfo: true
+    extend(config) {
+      config.bail = true
     },
     extractCSS: true,
     html: {

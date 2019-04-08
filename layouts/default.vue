@@ -29,5 +29,5 @@ export default {
 @import '~@/styles/tools'
 
 .app
-  //
+  overflow hidden
 </style>

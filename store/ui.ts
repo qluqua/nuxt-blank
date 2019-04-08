@@ -17,6 +17,7 @@ export const state = () => ({
 })
 
 export const getters = {
+  screenSize({ windowHeight, windowWidth }) { return windowHeight * windowWidth },
   columns(state) { return state.grid.columns[state.breakpoint] },
   gutterWidth(state) { return state.grid.gutters[state.breakpoint] },
   offsetWidth(state) { return state.grid.offsets[state.breakpoint] },
