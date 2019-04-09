@@ -4,7 +4,7 @@
   +b.page
     +e.H1.title move your mouse around the red circles
     +e.scene
-      +e.el.js-circle-element(v-for="i in 100" :key="i")
+      +e.el.js-circle-element(v-for="i in 1000" :key="i")
         +e.ghost.js-circle-ghost
 </template>
 
@@ -74,9 +74,18 @@ export default Vue.extend({
         if (distance > range) return
 
         const angle = getAngle(clientX, clientY, element, top, left)
-        const moveDistance = (range - distance) / 12
-        const translateX = Math.sin(angle * Math.PI / 180) * moveDistance
-        const translateY = Math.cos(angle * Math.PI / 180) * -moveDistance
+        const factor = 7
+        const progress = (range - distance) / range
+        const translateXMax = Math.sin(angle * Math.PI / 180) * range / factor
+        const translateYMax = Math.cos(angle * Math.PI / 180) * -range / factor
+        let translateX = Math.sin(angle * Math.PI / 180) * progress * range / factor
+        let translateY = Math.cos(angle * Math.PI / 180) * -(progress * range / factor)
+
+        // @TODO: @!!@!@
+        if (progress > .5) {
+          translateX = translateXMax - translateX
+          translateY = translateYMax - translateY
+        }
 
         ghost.setAttribute('style', `transform: translate(${translateX}px, ${translateY}px);`)
       }
