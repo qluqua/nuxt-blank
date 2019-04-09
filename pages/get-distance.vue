@@ -2,24 +2,29 @@
   include ../tools/all
 
   +b.page
-    +e.H1.title distance: {{ distance }}px
-    +e.el(ref="el")
+    +e.H1.title move your mouse around the red circles
+    +e.scene
+      +e.el.js-circle-element(v-for="i in 100" :key="i")
+        +e.ghost.js-circle-ghost
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { mapState, mapGetters } from 'vuex'
 import getDistance from '@/mixins/getDistance'
+import getAngle from '@/mixins/getAngle'
 
 export default Vue.extend({
   name: 'get-distance',
   data: () => ({
-    elParams: null,
-    distance: null as number
+    elements: [] as HTMLElement[],
+    ghosts: [] as HTMLElement[],
+    elementsRects: [] as any[],
   }),
   computed: {
     ...mapState('ui', [
-      'screenSize'
+      'screenSize',
+      'scrollY'
     ]),
     ...mapGetters('ui', [
       'isDesktop',
@@ -28,28 +33,58 @@ export default Vue.extend({
   },
   watch: {
     screenSize(val) {
-      if (process.client && this.isDesktop && val) this.getElementParams()
+      if (process.client && this.isDesktop && val) this.getElementsParams()
+    },
+    scrollY() {
+      if (process.client && this.isDesktop) this.getElementsParams()
     }
   },
   mounted() {
     if (process.client && this.isDesktop) {
-      this.getElementParams()
-      window.onmousemove = this.mouseAnimation
+      this.getElementsParams()
+      window.onmousemove = this.mouseHandler
     }
   },
   methods: {
-    getElementParams() {
-      const { top, right, bottom, left } = this.$refs.el.getBoundingClientRect()
+    getElementsParams() {
+      const elements = Array.from(document.querySelectorAll('.js-circle-element')) as HTMLElement[]
+      const ghosts = Array.from(document.querySelectorAll('.js-circle-ghost')) as HTMLElement[]
+      const saveElementRect = el => {
+        const { top, right, bottom, left } = el.getBoundingClientRect()
 
-      this.elParams = { top, right, bottom, left }
+        this.elementsRects.push({ top, right, bottom, left })
+      }
+
+      this.elementsRects = []
+      elements.forEach(saveElementRect)
+
+      this.elements = elements
+      this.ghosts = ghosts
     },
-    mouseAnimation(event) {
+    mouseHandler(event) {
       const { clientX, clientY } = event
-      const { top, right, bottom, left } = this.elParams
-      const distance = getDistance(clientX, clientY, top, right, bottom, left)
+      const { elements, ghosts, elementsRects } = this
+      const animateGhosts = i => {
+        const element = elements[i]
+        const ghost = ghosts[i]
+        const { top, right, bottom, left } = elementsRects[i]
+        const distance = getDistance(clientX, clientY, top, right, bottom, left)
+        const range = 200
 
-      this.distance = distance
-    }
+        if (distance > range) return
+
+        const angle = getAngle(clientX, clientY, element, top, left)
+        const moveDistance = (range - distance) / 12
+        const translateX = Math.sin(angle * Math.PI / 180) * moveDistance
+        const translateY = Math.cos(angle * Math.PI / 180) * -moveDistance
+
+        ghost.setAttribute('style', `transform: translate(${translateX}px, ${translateY}px);`)
+      }
+
+      for (let i = 0; i < elements.length; i++) {
+        animateGhosts(i)
+      }
+    },
   }
 })
 </script>
@@ -58,9 +93,22 @@ export default Vue.extend({
 @import '~@/styles/tools'
 
 .page
+  &__scene
+    display flex
+    flex-wrap wrap
+    min-height 100vh
+
   &__el
+    position relative
     width 100px
     height 100px
-    margin 10vh 0 0 10vw
+    margin 30px
+    border-radius 50%
     debug()
+
+  &__ghost
+    ghost()
+    debug()
+    border-radius 50%
+    cursor pointer
 </style>

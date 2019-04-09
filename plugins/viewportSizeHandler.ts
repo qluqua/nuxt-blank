@@ -24,7 +24,7 @@ export default ({ store }) => {
 
   // Scroll
   const scrollHandler = () => {
-    store.commit('ui/setScrollPosition', window.pageYOffset)
+    store.commit('ui/setScrollY', window.pageYOffset)
   }
 
   window.addEventListener('scroll', debounce(scrollHandler, 16))

@@ -14,6 +14,7 @@ export const state = () => ({
   windowHeight: null as number,
   locale: null,
   menuIsOpen: null,
+  scrollY: null as number,
 })
 
 export const getters = {
@@ -41,6 +42,7 @@ export const mutations = {
     state.breakpoint = payload[2]
     state.scrollbarWidth = payload[3]
   },
+  setScrollY(state, payload) { state.scrollY = payload },
   setDeviceType(state, payload: string) { state.deviceType = payload },
   isIe(state) { state.isIe = true },
   isEdge(state) { state.isEdge = true },
