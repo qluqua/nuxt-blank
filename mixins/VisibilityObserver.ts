@@ -32,18 +32,18 @@ export default class VisibilityObserver {
   }
 
   observe(target) {
-    this.observer = new IntersectionObserver(entries => {
-      const entry = entries[0]
-
-      if (entry.isIntersecting) {
-        if ('ifIntoView' in this.options) {
-          this.options.ifIntoView.call(target)
+    this.observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if ('ifIntoView' in this.options) {
+            this.options.ifIntoView.call(target)
+          }
+        } else {
+          if ('ifOutOfView' in this.options) {
+            this.options.ifOutOfView.call(target)
+          }
         }
-      } else {
-        if ('ifOutOfView' in this.options) {
-          this.options.ifOutOfView.call(target)
-        }
-      }
+      })
     }, {
       rootMargin: `-${this.options.offset}px`,
     })
