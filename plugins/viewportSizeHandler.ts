@@ -1,5 +1,14 @@
 import { debounce } from 'lodash-es'
 
+export interface ViewportInfo {
+  windowWidth: number,
+  windowHeight: number,
+  documentWidth: number,
+  documentHeight: number,
+  scrollbarWidth: number,
+  breakpoint: string
+}
+
 export default ({ store }) => {
   // Resize. The reason for iframe usage is window resize event, that doesn't fire if
   // vertical scrollbar appears and this causes problems time after time
@@ -14,10 +23,20 @@ export default ({ store }) => {
     const queriesAll = Object.entries(store.state.ui.grid.queries)
     const queriesCurrent = queriesAll.filter((query: any) => window.matchMedia(query[1]).matches)
     const breakpoint = queriesCurrent.find(rule => rule[0].length === 2)[0]
-    const { offsetWidth } = document.documentElement
-    const scrollbarWidth = window.innerWidth - offsetWidth
+    const { offsetWidth, offsetHeight } = document.documentElement as HTMLElement
+    const { innerWidth, innerHeight } = window as Window
+    const scrollbarWidth = innerWidth - offsetWidth
 
-    store.commit('ui/updateViewportInfo', [offsetWidth, window.innerHeight, breakpoint, scrollbarWidth])
+    const viewportInfo: ViewportInfo = {
+      windowWidth: innerWidth,
+      windowHeight: innerHeight,
+      documentWidth: offsetWidth,
+      documentHeight: offsetHeight,
+      scrollbarWidth,
+      breakpoint
+    }
+
+    store.commit('ui/updateViewportInfo', viewportInfo)
   }
 
   sizeHandler()

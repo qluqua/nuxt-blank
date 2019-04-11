@@ -1,24 +1,29 @@
+import { ViewportInfo } from '@/plugins/viewportSizeHandler'
+
 const grid = require('@/styles/grid-config.json')
 
 // Отдельный массив чисел-брейкпоинтов, отсортированный по возрастанию
 grid.numbers = Object.keys(grid.breakpoints).map(key => grid.breakpoints[key]).sort((a: any, b: any) => a - b)
 
 export const state = () => ({
+  windowWidth: null as ViewportInfo['windowWidth'],
+  windowHeight: null as ViewportInfo['windowHeight'],
+  documentWidth: null as ViewportInfo['documentWidth'],
+  documentHeight: null as ViewportInfo['documentHeight'],
+  scrollbarWidth: null as ViewportInfo['scrollbarWidth'],
+  breakpoint: null as ViewportInfo['breakpoint'],
   grid,
-  breakpoint: null as string,
   isIe: null,
   isEdge: null,
   deviceType: null,
   browser: null,
-  windowWidth: null as number,
-  windowHeight: null as number,
   locale: null,
   menuIsOpen: null,
   scrollY: null as number,
 })
 
 export const getters = {
-  screenSize({ windowHeight, windowWidth }) { return windowHeight * windowWidth },
+  screenSize({ windowHeight, windowWidth, documentWidth, documentHeight }) { return windowHeight + windowWidth + documentWidth + documentHeight },
   columns(state) { return state.grid.columns[state.breakpoint] },
   gutterWidth(state) { return state.grid.gutters[state.breakpoint] },
   offsetWidth(state) { return state.grid.offsets[state.breakpoint] },
@@ -36,11 +41,13 @@ export const getters = {
 }
 
 export const mutations = {
-  updateViewportInfo(state, payload: any[]) {
-    state.windowWidth = payload[0]
-    state.windowHeight = payload[1]
-    state.breakpoint = payload[2]
-    state.scrollbarWidth = payload[3]
+  updateViewportInfo(state, payload: ViewportInfo) {
+    state.windowWidth = payload.windowWidth
+    state.windowHeight = payload.windowHeight
+    state.documentWidth = payload.documentWidth
+    state.documentHeight = payload.documentHeight
+    state.scrollbarWidth = payload.scrollbarWidth
+    state.breakpoint = payload.breakpoint
   },
   setScrollY(state, payload) { state.scrollY = payload },
   setDeviceType(state, payload: string) { state.deviceType = payload },
