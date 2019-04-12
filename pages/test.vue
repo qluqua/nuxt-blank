@@ -7,7 +7,6 @@
 </template>
 
 <script lang="ts">
-import axios from 'axios'
 import { mapState } from 'vuex'
 import uniqueId from '@/mixins/uniqueId.ts'
 import sleep from '@/mixins/sleep.ts'
@@ -23,8 +22,9 @@ export default {
       return uniqueId()
     }
   },
-  async asyncData() {
-    const { data } = await axios.get('https://jsonplaceholder.typicode.com/todos/1')
+  async asyncData({ $axios }) {
+    const data = await $axios.$get('https://jsonplaceholder.typicode.com/todos/1')
+    console.log(data)
     return { testData: data.title }
   },
   head() {

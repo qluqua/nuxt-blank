@@ -14,17 +14,16 @@ export default {
   },
   css: ['@/styles/app.styl'],
   loading: { color: '#fff' },
-  env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+  axios: {
+    // make true to enable dev proxy
+    proxy: false
   },
-  // proxy: {
-  //   // redirects all request from '/api' to this url
-  //   '/api': 'http://your-api-base-url.com'
-  // },
+  proxy: {
+    '/api/': 'http://beta-project-name-master.dev.ct.beta.agency'
+  },
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
-    // '@nuxtjs/proxy',
     ['nuxt-i18n', {
       parsePages: false,
       locales: [
