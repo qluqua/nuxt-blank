@@ -10,36 +10,35 @@ export default (
   urls: string | string[]
   ): Promise<any> => {
 
-  if (!process.client) {
+  if (!process.client) return
+
+  if (!urls || !urls.length) {
+    console.error(`>>> preloadImages error, condition executed: (!urls || !urls.length)`)
     return
   }
 
   return new Promise(async resolve => {
-    try {
-      if (typeof urls === 'string') {
-        urls = [urls]
-      }
-
-      const promises = []
-
-      for (const url of urls) {
-        const image = new Image() as HTMLImageElement
-        const promise = new Promise((resolve, reject) => {
-          image.onload = resolve
-          image.onerror = reject
-          image.src = url
-        })
-
-        promises.push(promise)
-      }
-
-      Promise.all(promises)
-        .then(resolve)
-        .catch(error => {
-          throw new Error(error)
-        })
-    } catch (error) {
-      console.error(`is client: ${process.client} >>> preloadImages error: ${error}`)
+    if (typeof urls === 'string') {
+      urls = [urls]
     }
+
+    const promises = []
+
+    for (const url of urls) {
+      const image = new Image() as HTMLImageElement
+      const promise = new Promise((resolve, reject) => {
+        image.onload = resolve
+        image.onerror = reject
+        image.src = url
+      })
+
+      promises.push(promise)
+    }
+
+    Promise.all(promises)
+      .then(resolve)
+      .catch(error => {
+        console.error(`>>> preloadImages error: ${error}`)
+      })
   })
 }
