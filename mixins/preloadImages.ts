@@ -33,8 +33,11 @@ export default (
         promises.push(promise)
       }
 
-      await Promise.all(promises)
-      resolve()
+      Promise.all(promises)
+        .then(resolve)
+        .catch(error => {
+          throw new Error(error)
+        })
     } catch (error) {
       console.error(`is client: ${process.client} >>> preloadImages error: ${error}`)
     }
