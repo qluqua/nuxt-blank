@@ -9,21 +9,34 @@ export default (
   /** Адрес или массив адресов картинок, которую необходимо "прогреть". */
   urls: string | string[]
   ): Promise<any> => {
-  return new Promise((resolve, reject) => {
-    try {
-      const image = new Image() as HTMLImageElement
 
+  if (!process.client) {
+    return
+  }
+
+  return new Promise(async resolve => {
+    try {
       if (typeof urls === 'string') {
         urls = [urls]
       }
 
+      const promises = []
+
       for (const url of urls) {
-        image.onload = resolve
-        image.onerror = reject
-        image.src = url
+        const image = new Image() as HTMLImageElement
+        const promise = new Promise((resolve, reject) => {
+          image.onload = resolve
+          image.onerror = reject
+          image.src = url
+        })
+
+        promises.push(promise)
       }
+
+      await Promise.all(promises)
+      resolve()
     } catch (error) {
-      console.error(`is server: ${process.server} >>> preloadImage error: ${error}`)
+      console.error(`is client: ${process.client} >>> preloadImages error: ${error}`)
     }
   })
 }
