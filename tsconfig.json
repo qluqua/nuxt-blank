@@ -1,7 +1,7 @@
 {
-  "extends": "@nuxt/typescript",
   "include": ["**/*.ts", "**/*.tsx", "**/*.vue"],
   "exclude": ["node_modules"],
+  "moduleResolution": "node",
   "compilerOptions": {
     "baseUrl": ".",
     "types": [
