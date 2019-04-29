@@ -73,7 +73,7 @@ export default {
     extend(config) {
       config.bail = true
     },
-    extractCSS: true,
+    extractCSS: process.env.NODE_ENV === 'production',
     html: {
       minify: {
         collapseBooleanAttributes: false,
