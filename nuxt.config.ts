@@ -72,8 +72,14 @@ export default {
     transpile: ['lodash-es'],
     extend(config) {
       config.bail = true
+
+      config.output.filename = '[name].[hash].js'
+      config.output.chunkFilename = '[name].[chunkhash].js'
     },
     extractCSS: process.env.NODE_ENV === 'production',
+    hotMiddleware: {
+      noInfo: true
+    },
     html: {
       minify: {
         collapseBooleanAttributes: false,
