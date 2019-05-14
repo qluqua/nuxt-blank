@@ -75,6 +75,10 @@ export default {
 
       config.output.filename = '[name].[hash].js'
       config.output.chunkFilename = '[name].[chunkhash].js'
+
+      if (process.env.NODE_ENV === 'development' && isClient) {
+        config.devtool = 'eval-source-map'
+      }
     },
     extractCSS: process.env.NODE_ENV === 'production',
     hotMiddleware: {
