@@ -31,7 +31,7 @@
     "hammerjs": "^2.0.8",
     "intersection-observer": "^0.5.1",
     "iscroll": "^5.2.0",
-    "lodash-es": "^4.17.11",
+    "lodash.debounce": "^4.0.8",
     "lottie-web": "^5.4.1",
     "nuxt": "^2.6.2",
     "nuxt-i18n": "^5.8.2",

@@ -1,4 +1,5 @@
-import { debounce } from 'lodash-es'
+
+import debounce from 'lodash.debounce'
 
 export interface ViewportInfo {
   windowWidth: number,

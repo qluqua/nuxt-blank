@@ -69,7 +69,6 @@ export default {
     dir: 'www'
   },
   build: {
-    transpile: ['lodash-es'],
     extend(config, { isClient }) {
       config.bail = true
 
