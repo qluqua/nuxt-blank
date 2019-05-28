@@ -70,7 +70,7 @@ export default {
   },
   build: {
     transpile: ['lodash-es'],
-    extend(config) {
+    extend(config, { isClient }) {
       config.bail = true
 
       config.output.filename = '[name].[hash].js'

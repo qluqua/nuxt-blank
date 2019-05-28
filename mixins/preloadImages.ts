@@ -34,7 +34,7 @@ export default (
     for (const url of urls) {
       const image = new Image() as HTMLImageElement
       const promise = new Promise((resolve, reject) => {
-        image.onload = resolve
+        image.onload = () => { resolve(image) }
         image.onerror = reject
         image.src = url
       })
@@ -46,14 +46,14 @@ export default (
     let loadingTime = null as number
 
     try {
-      await Promise.all(promises)
+      const images = await Promise.all(promises)
       loadingTime = Math.round(performance.now() - start)
 
       if (isDev && options && options.verbose) {
         console.log(`preloadImages: ${urls.length} images preloaded in ${loadingTime}ms`, urls)
       }
 
-      resolve(loadingTime)
+      resolve(images)
     } catch(error) {
       console.error(`>>> preloadImages error: ${error}`)
       reject(error)
