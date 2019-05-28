@@ -15,6 +15,7 @@ export default (
   urls: string | string[],
   options: PreloadImagesOptions
   ): Promise<any> => {
+  const isDev = process && process.env && process.env.NODE_ENV === 'development'
 
   if (process && !process.client) return
 
@@ -48,8 +49,8 @@ export default (
       await Promise.all(promises)
       loadingTime = Math.round(performance.now() - start)
 
-      if (options && options.verbose) {
-        console.log(`preloadImages: ${urls.length} images preloaded in ${loadingTime}ms`)
+      if (isDev && options && options.verbose) {
+        console.log(`preloadImages: ${urls.length} images preloaded in ${loadingTime}ms`, urls)
       }
 
       resolve(loadingTime)
