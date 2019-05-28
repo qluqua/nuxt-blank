@@ -5,19 +5,25 @@
  * 304 not modified если кеш в браузере не выключен, что позволит
  * отобразить картинку мгновенно.
  */
+
+interface PreloadImagesOptions {
+  verbose?: boolean
+}
+
 export default (
   /** Адрес или массив адресов картинок, которую необходимо "прогреть". */
-  urls: string | string[]
+  urls: string | string[],
+  options: PreloadImagesOptions
   ): Promise<any> => {
 
-  if (!process.client) return
+  if (process && !process.client) return
 
   if (!urls || !urls.length) {
     console.error(`>>> preloadImages error, condition executed: (!urls || !urls.length)`)
     return
   }
 
-  return new Promise(async resolve => {
+  return new Promise(async (resolve, reject) => {
     if (typeof urls === 'string') {
       urls = [urls]
     }
@@ -35,10 +41,21 @@ export default (
       promises.push(promise)
     }
 
-    Promise.all(promises)
-      .then(resolve)
-      .catch(error => {
-        console.error(`>>> preloadImages error: ${error}`)
-      })
+    const start = performance.now()
+    let loadingTime = null as number
+
+    try {
+      await Promise.all(promises)
+      loadingTime = Math.round(performance.now() - start)
+
+      if (options && options.verbose) {
+        console.log(`preloadImages: ${urls.length} images preloaded in ${loadingTime}ms`)
+      }
+
+      resolve(loadingTime)
+    } catch(error) {
+      console.error(`>>> preloadImages error: ${error}`)
+      reject(error)
+    }
   })
 }
