@@ -13,7 +13,7 @@ interface PreloadImagesOptions {
 export default (
   /** Адрес или массив адресов картинок, которую необходимо "прогреть". */
   urls: string | string[],
-  options: PreloadImagesOptions
+  options?: PreloadImagesOptions
   ): Promise<any> => {
   const isDev = process && process.env && process.env.NODE_ENV === 'development'
 
