@@ -1,6 +1,3 @@
-
-import debounce from 'lodash.debounce'
-
 export interface ViewportInfo {
   windowWidth: number,
   windowHeight: number,
@@ -16,7 +13,7 @@ export default ({ store }) => {
   const iframe = document.createElement('iframe')
 
   iframe.setAttribute('id', '_resizeTrigger')
-  iframe.setAttribute('style', 'position: fixed; z-index: -9999; visibility: hidden; width: 100%; height: 100%; border: none;')
+  iframe.setAttribute('style', 'position: absolute; z-index: -9999; visibility: hidden; width: 100%; min-height: 100%; height: auto; top: 0; border: none;')
   document.body.appendChild(iframe)
   iframe.contentWindow.addEventListener('resize', sizeHandler)
 
@@ -42,10 +39,7 @@ export default ({ store }) => {
 
   sizeHandler()
 
-  // Scroll
-  const scrollHandler = () => {
-    store.commit('ui/setScrollY', window.pageYOffset)
-  }
-
-  window.addEventListener('scroll', debounce(scrollHandler, 16))
+  window.addEventListener('scroll', () => {
+    store.dispatch('ui/updateScrollPosition', window.pageYOffset)
+  })
 }
