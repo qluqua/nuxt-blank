@@ -1,3 +1,9 @@
+const cache: { [key: string]: Promise<HTMLImageElement> } = {}
+
+interface PreloadImagesOptions {
+  verbose?: boolean
+}
+
 /**
  * Полиморфная функция для прогрева картинок. Используется в слайдерах,
  * что бы подгрузить картинку слудующего слайда как можно раньше.
@@ -5,36 +11,43 @@
  * 304 not modified если кеш в браузере не выключен, что позволит
  * отобразить картинку мгновенно.
  */
-
-interface PreloadImagesOptions {
-  verbose?: boolean
-}
-
 export default (
   /** Адрес или массив адресов картинок, которую необходимо "прогреть". */
   urls: string | string[],
   options?: PreloadImagesOptions
-  ): Promise<any> => {
+  ): Promise<HTMLImageElement[]> => {
   const isDev = process && process.env && process.env.NODE_ENV === 'development'
 
   if (process && !process.client) return
 
   if (!urls || !urls.length) {
-    console.error(`>>> preloadImages error, condition executed: (!urls || !urls.length)`)
+    console.error(`>>> preloadImages error: no urls recieved. urls:  ${urls}`)
     return
   }
 
-  return new Promise(async (resolve, reject) => {
-    if (typeof urls === 'string') {
-      urls = [urls]
-    }
+  if (typeof urls === 'string') {
+    urls = [urls]
+  }
 
+  const verboseMode = isDev && options && options.verbose
+
+  return new Promise(async (resolve, reject) => {
     const promises = []
+    let cacheCount = 0
 
     for (const url of urls) {
+      if (cache[url]) {
+        promises.push(cache[url])
+        cacheCount++
+        continue
+      }
+
       const image = new Image() as HTMLImageElement
-      const promise = new Promise((resolve, reject) => {
-        image.onload = () => { resolve(image) }
+      const promise: Promise<HTMLImageElement> = new Promise((resolve, reject) => {
+        image.onload = () => {
+          resolve(image)
+          cache[url] = promise
+        }
         image.onerror = reject
         image.src = url
       })
@@ -49,9 +62,7 @@ export default (
       const images = await Promise.all(promises)
       loadingTime = Math.round(performance.now() - start)
 
-      if (isDev && options && options.verbose) {
-        console.log(`preloadImages: ${urls.length} images preloaded in ${loadingTime}ms`, urls)
-      }
+      verboseMode && console.log(`preloadImages: ${urls.length} images, ${cacheCount} taken from cache, loading time ${loadingTime}ms`, urls)
 
       resolve(images)
     } catch(error) {
