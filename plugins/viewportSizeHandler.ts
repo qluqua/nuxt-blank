@@ -16,7 +16,7 @@ export default ({ store }) => {
   const iframe = document.createElement('iframe')
 
   iframe.setAttribute('id', '_resizeTrigger')
-  iframe.setAttribute('style', 'position: fixed; z-index: -9999; visibility: hidden; top: -1px; left: 0; right: 0; height: 0px; width: 100%; border: none;')
+  iframe.setAttribute('style', 'position: fixed; z-index: -9999; visibility: hidden; top: -1px; left: 0; right: 0; height: 0px; width: 100%; border: none; min-height: 100vh;')
   document.body.appendChild(iframe)
   iframe.contentWindow.addEventListener('resize', sizeHandler)
 
