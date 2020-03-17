@@ -44,11 +44,11 @@ export default {
     }]
   ],
   plugins: [
-    { src: '@/plugins/intersectionObserver.ts', ssr: false },
-    { src: '@/plugins/viewportSizeHandler.ts', ssr: false },
-    { src: '@/plugins/clientParametersHandler.ts', ssr: false },
+    { src: '@/plugins/clientUiHandler.ts', ssr: false },
+    { src: '@/plugins/api' },
     { src: '@/plugins/svgxuse.ts', ssr: false },
-    { src: '@/plugins/keyboardHandler.ts', ssr: false },
+    // { src: '@/plugins/intersectionObserver.ts', ssr: false },
+    // { src: '@/plugins/keyboardHandler.ts', ssr: false },
   ],
   vue: {
     config: {

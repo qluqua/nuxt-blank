@@ -2,7 +2,7 @@
  * !!! Для IE применяется scrollIntoView вместо scrollTo, т.е. скролл на IE будет
  * срабатывать только если передан объект, а не число.
  */
-function scrollTo(
+export default function scrollTo(
   /** Число, строка или объект (HTML-элемент)
    * Если объект - рассчитывается расстояние от края экрана до верхней границы элемента
    * и прибавляется величина прокрутки экрана.
@@ -97,6 +97,3 @@ function scrollToAnimation(to = 0, duration, callback) {
 
   animateScroll()
 }
-
-export { scrollTo }
-export default scrollTo

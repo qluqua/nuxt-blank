@@ -12,7 +12,7 @@ import DebugGrid from '@/components/DebugGrid.vue'
 import DebugNavigation from '@/components/DebugNavigation.vue'
 
 export default {
-  name: 'default',
+  name: 'Default',
   components: {
     DebugGrid,
     DebugNavigation,
@@ -21,7 +21,7 @@ export default {
     showDebugGrid() {
       return Object.keys(this.$route.query).includes('debug')
     },
-  }
+  },
 }
 </script>
 

@@ -8,7 +8,7 @@ function scriptAlreadyIncluded(url: string): boolean {
   return !!scripts.filter(script => script.src === url).length
 }
 
-function includeScriptOnce(url: string): Promise<boolean> {
+export default function includeScriptOnce(url: string): Promise<boolean> {
   return new Promise(resolve => {
     if (scriptAlreadyIncluded(url)) {
       resolve(true)
@@ -28,6 +28,3 @@ function includeScriptOnce(url: string): Promise<boolean> {
     }
   })
 }
-
-export { includeScriptOnce }
-export default includeScriptOnce

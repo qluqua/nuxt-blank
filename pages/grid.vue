@@ -23,7 +23,7 @@
 import { mapState, mapGetters } from 'vuex'
 
 export default {
-  name: 'index',
+  name: 'PageGrid',
   computed: {
     ...mapState('ui', [
       'windowWidth',

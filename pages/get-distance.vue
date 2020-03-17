@@ -15,7 +15,7 @@ import getDistance from '@/mixins/getDistance'
 import getAngle from '@/mixins/getAngle'
 
 export default Vue.extend({
-  name: 'get-distance',
+  name: 'PageGetDistance',
   data: () => ({
     elements: [] as HTMLElement[],
     ghosts: [] as HTMLElement[],

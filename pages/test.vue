@@ -3,23 +3,36 @@
 
   +b.page
     +e.H1.title {{ id }}
-    +e.PRE.test-data(v-if="testData") {{ testData }}
+    <div>
+      Данные, полученные на сервере:
+      <pre>{{ exampleData1 }}</pre>
+      <br>
+    </div>
+    <div>
+      Данные, полученные на клиенте в mounted():
+      <pre>{{ exampleData2 }}</pre>
+      <br>
+    </div>
+    <div>
+      Данные, полученные на клиенте через action в сторе:
+      <pre>{{ exampleState }}</pre>
+      <br>
+    </div>
 </template>
 
 <script lang="ts">
 import { mapState } from 'vuex'
-import uniqueId from '@/mixins/uniqueId.ts'
-import sleep from '@/mixins/sleep.ts'
+import { createRandomId, sleep } from '@/utils'
 
 export default {
-  name: 'test',
+  name: 'PageTest',
   computed: {
     ...mapState('ui', [
       'isIe',
       'isEdge'
     ]),
     id() {
-      return uniqueId()
+      return createRandomId()
     }
   },
   async asyncData({ $axios }) {
