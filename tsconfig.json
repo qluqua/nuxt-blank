@@ -4,20 +4,15 @@
   "moduleResolution": "node",
   "compilerOptions": {
     "baseUrl": ".",
+    "paths": {
+      "@/*": ["*"]
+    },
     "types": [
       "@types/node",
       "@nuxt/vue-app"
     ],
     "target": "es5",
     "module": "esnext",
-    "paths": {
-      "~/*": [
-        "./*"
-      ],
-      "@/*": [
-        "./*"
-      ]
-    },
     "lib": [
       "es2017",
       "dom",

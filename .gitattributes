@@ -1,0 +1,5 @@
+* text=auto
+*.sh eol=lf
+*.vue eol=lf
+*.js eol=lf
+*.ts eol=lf

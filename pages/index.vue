@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { mapState, mapActions } from 'vuex' // eslint-disable-line
+import { mapState, mapActions } from 'vuex'
 import { sleep } from '@/utils'
 
 export default {

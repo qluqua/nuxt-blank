@@ -1,4 +1,4 @@
-import messages from './locales'
+// import messages from './locales'
 
 export default {
   mode: 'universal',
@@ -12,18 +12,22 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  styleResources: {
+    stylus: ['@/assets/styles/tools.styl'],
+  },
   css: ['@/styles/app.styl'],
-  loading: { color: '#fff' },
+  loading: { color: '#ff0' },
   axios: {
     // make true to enable dev proxy
     proxy: false
   },
   proxy: {
-    '/api/': 'http://beta-project-name-master.dev.ct.beta.agency'
+    '/api/': 'http://endpoint.url.dev.domain.com'
   },
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
+    '@nuxtjs/style-resources',
     ['nuxt-i18n', {
       parsePages: false,
       locales: [
@@ -38,9 +42,9 @@ export default {
         alwaysRedirect: false,
         cookieKey: 'i18n_redirected'
       },
-      vueI18n: {
-        messages
-      }
+      // vueI18n: {
+      //   messages
+      // }
     }]
   ],
   plugins: [
@@ -92,7 +96,19 @@ export default {
         trimCustomFragments: false,
         useShortDoctype: false
       }
-    }
+    },
+    babel: {
+      plugins: [
+        '@babel/plugin-proposal-optional-chaining',
+        '@babel/plugin-proposal-nullish-coalescing-operator',
+        [
+          '@babel/plugin-proposal-pipeline-operator',
+          {
+            proposal: 'minimal',
+          },
+        ],
+      ],
+    },
   },
   // sitemap: {
   //   path: '/sitemap.xml',
