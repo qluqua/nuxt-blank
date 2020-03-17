@@ -1,22 +1,28 @@
 {
   "include": ["**/*.ts", "**/*.tsx", "**/*.vue"],
   "exclude": ["node_modules"],
-  "moduleResolution": "node",
   "compilerOptions": {
+    "target": "es2018",
+    "module": "esnext",
+    "lib": [
+      "esnext",
+      "esnext.asynciterable",
+      "scripthost",
+      "dom",
+    ],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["*"]
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
     },
     "types": [
       "@types/node",
-      "@nuxt/vue-app"
-    ],
-    "target": "es5",
-    "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom",
-      "scripthost"
+      "@nuxt/vue-app",
+      "@nuxt/types"
     ],
     "moduleResolution": "node",
     "jsx": "preserve",

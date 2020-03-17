@@ -1,9 +1,4 @@
-export default (
-  /**
-   * url видео, которое необходимо "прогреть".
-   */
-  url: string
-): Promise<any> => {
+export default function preloadVideo(url: string): Promise<any> {
   return new Promise((resolve, reject) => {
     const el = document.createElement('video')
 

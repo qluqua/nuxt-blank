@@ -1,6 +1,6 @@
 /** Функция возвращает величину для transform: translateY() в зависимости от положения элемента в зоне viewport */
 
-export default function(
+export default function getParallaxTransform(
   /** HTML-элемент, которому мы хотим менять translateY */
   el: HTMLElement,
   /** Число, которым мы задаем диапазон движения элемента в завимости от положения в зоне Viewport.  */

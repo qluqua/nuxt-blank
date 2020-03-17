@@ -3,7 +3,7 @@
  * relative paths are used intentionally
  * otherwise it breaks the assembly on the server
  */
-import { isProductionStand } from './server';
+import { isProductionStand } from '@/utils';
 
 const DEFAULT_CONFIG = {
   prefix: '',
