@@ -1,17 +1,15 @@
-import { ViewportInfo } from '@/plugins/viewportSizeHandler'
-
 const grid = require('@/styles/grid-config.json')
 
 // Отдельный массив чисел-брейкпоинтов, отсортированный по возрастанию
 grid.numbers = Object.keys(grid.breakpoints).map(key => grid.breakpoints[key]).sort((a: any, b: any) => a - b)
 
 export const state = () => ({
-  windowWidth: null as ViewportInfo['windowWidth'],
-  windowHeight: null as ViewportInfo['windowHeight'],
-  documentWidth: null as ViewportInfo['documentWidth'],
-  documentHeight: null as ViewportInfo['documentHeight'],
-  scrollbarWidth: null as ViewportInfo['scrollbarWidth'],
-  breakpoint: null as ViewportInfo['breakpoint'],
+  windowWidth: null,
+  windowHeight: null,
+  documentWidth: null,
+  documentHeight: null,
+  scrollbarWidth: null,
+  breakpoint: null,
   grid,
   isIe: null,
   isEdge: null,

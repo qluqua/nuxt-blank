@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import locales from '@/locales'
+import { default as locales } from '@/locales'
 
 export default {
   name: 'DebugNavigation',

@@ -1,11 +1,5 @@
-/admin/node_modules
-/admin/www
-/backend/node_modules
-/dist
-/www
 /tmp
 /static/images/sprite.svg
-
 /libs/swagger
 
 # Created by .ignore support plugin (hsz.mobi)
