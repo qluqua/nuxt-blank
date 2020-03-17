@@ -1,7 +1,16 @@
 <template lang="pug">
   include ../tools/all
 
-  +b.page index.vue
+  +b.page
+    div Данные, полученные на сервере:
+      pre {{ exampleData1 }}
+      br
+    div Данные, полученные на клиенте в mounted():
+      pre {{ exampleData2 }}
+      br
+    div полученные на клиенте через action в сторе:
+      pre {{ exampleState }}
+      br
 </template>
 
 <script lang="ts">

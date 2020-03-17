@@ -3,26 +3,11 @@
 
   +b.page
     +e.H1.title {{ id }}
-    <div>
-      Данные, полученные на сервере:
-      <pre>{{ exampleData1 }}</pre>
-      <br>
-    </div>
-    <div>
-      Данные, полученные на клиенте в mounted():
-      <pre>{{ exampleData2 }}</pre>
-      <br>
-    </div>
-    <div>
-      Данные, полученные на клиенте через action в сторе:
-      <pre>{{ exampleState }}</pre>
-      <br>
-    </div>
 </template>
 
 <script lang="ts">
 import { mapState } from 'vuex'
-// import { createRandomId, sleep } from '@/utils'
+import { createRandomId, sleep } from '@/utils'
 
 export default {
   name: 'PageTest',
@@ -32,7 +17,7 @@ export default {
       'isEdge'
     ]),
     id() {
-      return 0 // createRandomId()
+      return createRandomId()
     }
   },
   head() {

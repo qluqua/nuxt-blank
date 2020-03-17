@@ -24,6 +24,7 @@
       "@nuxt/vue-app",
       "@nuxt/types"
     ],
+    "esModuleInterop": true,
     "moduleResolution": "node",
     "jsx": "preserve",
     "strict": false,

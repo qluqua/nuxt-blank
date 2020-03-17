@@ -11,8 +11,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapState, mapGetters } from 'vuex'
-import getDistance from '@/mixins/getDistance'
-import getAngle from '@/mixins/getAngle'
+import { getDistance, getAngle } from '@/utils'
 
 export default Vue.extend({
   name: 'PageGetDistance',

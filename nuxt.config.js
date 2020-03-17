@@ -1,3 +1,4 @@
+import path from 'path'
 // import messages from './locales'
 
 export default {
@@ -72,8 +73,8 @@ export default {
   buildModules: ['@nuxt/typescript-build'],
   build: {
     extend(config, { isClient }) {
+      // config.resolve.alias['@'] = path.resolve('.')
       config.bail = true
-
       config.output.filename = '[name].[hash].js'
       config.output.chunkFilename = '[name].[chunkhash].js'
 
