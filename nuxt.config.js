@@ -49,11 +49,11 @@ export default {
     }]
   ],
   plugins: [
-    { src: '@/plugins/clientUiHandler.ts', ssr: false },
+    { src: '@/plugins/clientUiHandler', ssr: false },
     { src: '@/plugins/api' },
-    { src: '@/plugins/svgxuse.ts', ssr: false },
-    // { src: '@/plugins/intersectionObserver.ts', ssr: false },
-    // { src: '@/plugins/keyboardHandler.ts', ssr: false },
+    { src: '@/plugins/svgxuse', ssr: false },
+    // { src: '@/plugins/intersectionObserver', ssr: false },
+    // { src: '@/plugins/keyboardHandler', ssr: false },
   ],
   vue: {
     config: {
