@@ -1,17 +1,15 @@
-import { ViewportInfo } from '@/plugins/viewportSizeHandler'
-
 const grid = require('@/styles/grid-config.json')
 
 // Отдельный массив чисел-брейкпоинтов, отсортированный по возрастанию
 grid.numbers = Object.keys(grid.breakpoints).map(key => grid.breakpoints[key]).sort((a: any, b: any) => a - b)
 
 export const state = () => ({
-  windowWidth: null as ViewportInfo['windowWidth'],
-  windowHeight: null as ViewportInfo['windowHeight'],
-  documentWidth: null as ViewportInfo['documentWidth'],
-  documentHeight: null as ViewportInfo['documentHeight'],
-  scrollbarWidth: null as ViewportInfo['scrollbarWidth'],
-  breakpoint: null as ViewportInfo['breakpoint'],
+  windowWidth: null,
+  windowHeight: null,
+  documentWidth: null,
+  documentHeight: null,
+  scrollbarWidth: null,
+  breakpoint: null,
   grid,
   isIe: null,
   isEdge: null,
@@ -27,13 +25,13 @@ export const getters = {
   columns(state) { return state.grid.columns[state.breakpoint] },
   gutterWidth(state) { return state.grid.gutters[state.breakpoint] },
   offsetWidth(state) { return state.grid.offsets[state.breakpoint] },
-  columnWidth(state, getters) {
-    const { windowWidth } = state
-    const { columns, gutterWidth, offsetWidth } = getters
-    const colWidth = (windowWidth - (offsetWidth * 2) - (gutterWidth * (columns - 1))) / columns
+  // columnWidth(state, getters) {
+  //   const { windowWidth } = state
+  //   const { columns, gutterWidth, offsetWidth } = getters
+  //   const colWidth = (windowWidth - (offsetWidth * 2) - (gutterWidth * (columns - 1))) / columns
 
-    return colWidth
-  },
+  //   return colWidth
+  // },
   isDesktop(state) { return state.deviceType === 'desktop' },
   isTablet(state) { return state.deviceType === 'tablet' },
   isMobile(state) { return state.deviceType === 'mobile' },
@@ -41,7 +39,7 @@ export const getters = {
 }
 
 export const mutations = {
-  updateViewportInfo(state, payload: ViewportInfo) {
+  updateViewportInfo(state, payload) {
     state.windowWidth = payload.windowWidth
     state.windowHeight = payload.windowHeight
     state.documentWidth = payload.documentWidth

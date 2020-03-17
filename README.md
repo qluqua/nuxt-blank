@@ -8,7 +8,7 @@ export default Vue.extend({
   name: 'ExampleComponent',
   props: {
     /** DON'T DO IT, USE Object INSTEAD, UNLESS YOU WANT SPEND HOURS IN PAIN SUFFERING OF MISTERIOS ERRORS */
-    testProp: Array 
+    testProp: Array
   },
 })
 </script>
@@ -22,10 +22,10 @@ export default Vue.extend({
 ## Build Setup
 ``` bash
 # install dependencies
-$ yarn install
+$ yarn
 
 # serve in development mode with hot reload at localhost:3000
-$ yarn start
+$ yarn dev
 
 # serve in production mode with hot reload at localhost:3000
 $ yarn prod

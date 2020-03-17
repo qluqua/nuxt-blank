@@ -34,7 +34,7 @@ export default {
       'columns',
       'gutter',
       'offset',
-      'columnWidth'
+      // 'columnWidth'
     ]),
   }
 }

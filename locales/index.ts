@@ -1,6 +1,2 @@
-import ru from './ru-RU'
-import en from './en-US'
-
-export default {
-  en, ru
-}
+export { default as ru } from './ru-RU'
+export { default as en } from './en-US'

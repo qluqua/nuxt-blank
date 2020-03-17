@@ -1,6 +1,6 @@
-import VisibilityObserver from '@/mixins/VisibilityObserver'
+import { VisibilityObserver } from '@/utils'
 
-export default (className = 'js-voa-start') => {
+export default function animateIfVisible(className = 'js-voa-start') {
   const options = {
     targets: document.getElementsByClassName(className),
     offset: 100,

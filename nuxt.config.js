@@ -1,4 +1,5 @@
-import messages from './locales'
+import path from 'path'
+// import messages from './locales'
 
 export default {
   mode: 'universal',
@@ -13,42 +14,42 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   css: ['@/styles/app.styl'],
-  loading: { color: '#fff' },
+  loading: { color: 'red' },
   axios: {
     // make true to enable dev proxy
     proxy: false
   },
   proxy: {
-    '/api/': 'http://beta-project-name-master.dev.ct.beta.agency'
+    '/api/': 'http://endpoint.url.dev.domain.com'
   },
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
-    ['nuxt-i18n', {
-      parsePages: false,
-      locales: [
-        { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU' },
-        { name: 'English', code: 'en', iso: 'en-US', file: 'en-US' }
-      ],
-      lazy: true,
-      langDir: 'locales/',
-      defaultLocale: 'ru',
-      detectBrowserLanguage: {
-        useCookie: true,
-        alwaysRedirect: false,
-        cookieKey: 'i18n_redirected'
-      },
-      vueI18n: {
-        messages
-      }
-    }]
+    // ['nuxt-i18n', {
+    //   parsePages: false,
+    //   locales: [
+    //     { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU' },
+    //     { name: 'English', code: 'en', iso: 'en-US', file: 'en-US' }
+    //   ],
+    //   lazy: true,
+    //   langDir: 'locales/',
+    //   defaultLocale: 'ru',
+    //   detectBrowserLanguage: {
+    //     useCookie: true,
+    //     alwaysRedirect: false,
+    //     cookieKey: 'i18n_redirected'
+    //   },
+    //   // vueI18n: {
+    //   //   messages
+    //   // }
+    // }]
   ],
   plugins: [
-    { src: '@/plugins/intersectionObserver.ts', ssr: false },
-    { src: '@/plugins/viewportSizeHandler.ts', ssr: false },
-    { src: '@/plugins/clientParametersHandler.ts', ssr: false },
-    { src: '@/plugins/svgxuse.ts', ssr: false },
-    { src: '@/plugins/keyboardHandler.ts', ssr: false },
+    { src: '@/plugins/clientUiHandler', ssr: false },
+    { src: '@/plugins/api' },
+    { src: '@/plugins/svgxuse', ssr: false },
+    // { src: '@/plugins/intersectionObserver', ssr: false },
+    // { src: '@/plugins/keyboardHandler', ssr: false },
   ],
   vue: {
     config: {
@@ -62,16 +63,14 @@ export default {
     }
   },
   server: {
-    port: 3000, // default: 3000
+    port: 3000,
     host: '0.0.0.0', // default: localhost
   },
-  generate: {
-    dir: 'www'
-  },
+  buildModules: ['@nuxt/typescript-build'],
   build: {
     extend(config, { isClient }) {
+      // config.resolve.alias['@'] = path.resolve('.')
       config.bail = true
-
       config.output.filename = '[name].[hash].js'
       config.output.chunkFilename = '[name].[chunkhash].js'
 
@@ -95,7 +94,7 @@ export default {
         trimCustomFragments: false,
         useShortDoctype: false
       }
-    }
+    },
   },
   // sitemap: {
   //   path: '/sitemap.xml',
@@ -117,8 +116,4 @@ export default {
   //     }
   //   ]
   // },
-  // sentry: {
-  //   dsn: '', // Enter your project's DSN here
-  //   config: {}, // Additional config
-  // }
 }
