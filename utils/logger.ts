@@ -48,6 +48,7 @@ export const loggerClearTemplate = (strings, ...expressions) => {
 };
 
 export class Logger {
+  options: { prefix: string; condition: boolean; };
   /**
    * @param {{ prefix: string, condition: boolean }} config
    */

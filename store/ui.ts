@@ -39,7 +39,7 @@ export const getters = {
 }
 
 export const mutations = {
-  updateViewportInfo(state, payload: ViewportInfo) {
+  updateViewportInfo(state, payload) {
     state.windowWidth = payload.windowWidth
     state.windowHeight = payload.windowHeight
     state.documentWidth = payload.documentWidth

@@ -42,7 +42,7 @@ export default function clientUiHandler({ store: { state, commit } }) {
 
     // Отлавливает всё, кроме высоты ОКНА
     function iframeResizeHandler() {
-      const queriesCurrent = queriesAll.filter(query => window.matchMedia(query[1]).matches);
+      const queriesCurrent = queriesAll.filter(query => window.matchMedia(query[1] as string).matches);
       const breakpoint = queriesCurrent.find(rule => rule[0].length === 2)[0];
       const { innerWidth: windowWidth, innerHeight: windowHeight } = window;
       const { innerWidth: documentWidth, innerHeight: documentHeight } = iframe.contentWindow;
