@@ -25,13 +25,13 @@ export const getters = {
   columns(state) { return state.grid.columns[state.breakpoint] },
   gutterWidth(state) { return state.grid.gutters[state.breakpoint] },
   offsetWidth(state) { return state.grid.offsets[state.breakpoint] },
-  columnWidth(state, getters) {
-    const { windowWidth } = state
-    const { columns, gutterWidth, offsetWidth } = getters
-    const colWidth = (windowWidth - (offsetWidth * 2) - (gutterWidth * (columns - 1))) / columns
+  // columnWidth(state, getters) {
+  //   const { windowWidth } = state
+  //   const { columns, gutterWidth, offsetWidth } = getters
+  //   const colWidth = (windowWidth - (offsetWidth * 2) - (gutterWidth * (columns - 1))) / columns
 
-    return colWidth
-  },
+  //   return colWidth
+  // },
   isDesktop(state) { return state.deviceType === 'desktop' },
   isTablet(state) { return state.deviceType === 'tablet' },
   isMobile(state) { return state.deviceType === 'mobile' },

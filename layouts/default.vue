@@ -3,19 +3,16 @@
 
   +b.app#app(v-cloak)
     DebugGrid(v-if="showDebugGrid")
-    DebugNavigation
     nuxt
 </template>
 
 <script lang="ts">
 import DebugGrid from '@/components/DebugGrid.vue'
-import DebugNavigation from '@/components/DebugNavigation.vue'
 
 export default {
   name: 'Default',
   components: {
     DebugGrid,
-    DebugNavigation,
   },
   computed: {
     showDebugGrid() {

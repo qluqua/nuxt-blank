@@ -13,11 +13,8 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  styleResources: {
-    stylus: ['@/assets/styles/tools.styl'],
-  },
   css: ['@/styles/app.styl'],
-  loading: { color: '#ff0' },
+  loading: { color: 'red' },
   axios: {
     // make true to enable dev proxy
     proxy: false
@@ -28,25 +25,24 @@ export default {
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/sitemap',
-    '@nuxtjs/style-resources',
-    ['nuxt-i18n', {
-      parsePages: false,
-      locales: [
-        { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU' },
-        { name: 'English', code: 'en', iso: 'en-US', file: 'en-US' }
-      ],
-      lazy: true,
-      langDir: 'locales/',
-      defaultLocale: 'ru',
-      detectBrowserLanguage: {
-        useCookie: true,
-        alwaysRedirect: false,
-        cookieKey: 'i18n_redirected'
-      },
-      // vueI18n: {
-      //   messages
-      // }
-    }]
+    // ['nuxt-i18n', {
+    //   parsePages: false,
+    //   locales: [
+    //     { name: 'Russian', code: 'ru', iso: 'ru-RU', file: 'ru-RU' },
+    //     { name: 'English', code: 'en', iso: 'en-US', file: 'en-US' }
+    //   ],
+    //   lazy: true,
+    //   langDir: 'locales/',
+    //   defaultLocale: 'ru',
+    //   detectBrowserLanguage: {
+    //     useCookie: true,
+    //     alwaysRedirect: false,
+    //     cookieKey: 'i18n_redirected'
+    //   },
+    //   // vueI18n: {
+    //   //   messages
+    //   // }
+    // }]
   ],
   plugins: [
     { src: '@/plugins/clientUiHandler', ssr: false },
