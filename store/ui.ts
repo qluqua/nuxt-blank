@@ -47,6 +47,7 @@ export const mutations = {
     state.scrollbarWidth = payload.scrollbarWidth
     state.breakpoint = payload.breakpoint
   },
+  setWindowHeight(state, payload) { state.windowHeight = payload },
   setScrollY(state, payload) { state.scrollY = payload },
   setDeviceType(state, payload: string) { state.deviceType = payload },
   isIe(state) { state.isIe = true },

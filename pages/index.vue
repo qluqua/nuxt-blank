@@ -128,7 +128,6 @@ strong
     position relative
     z-index 1
     padding 30px 0
-    font-family Helvetica, sans-serif
     color #333
     background-color white
 
