@@ -51,7 +51,7 @@
     "dotenv": "^6.1.0",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "pug-plain-loader": "^1.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
