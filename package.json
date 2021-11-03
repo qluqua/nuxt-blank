@@ -36,7 +36,7 @@
     "stylus-mixins": "https://github.com/qluqua/stylus-mixins.git",
     "svgxuse": "^1.2.6",
     "ts-node": "^8.1.0",
-    "validator": "^10.8.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@nuxt/types": "^0.6.4",
